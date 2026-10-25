@@ -1,0 +1,37 @@
+[project]
+name = "kyb-review-agent"
+version = "0.1.0"
+description = "KYB first-line merchant review: stuffed-context baseline vs vanilla RAG vs ReAct agent with a tool-layer approval gate"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7",
+    "python-dotenv>=1.0",
+    "openai>=1.50",
+    "langgraph>=0.2.60",
+    "langchain-core>=0.3",
+    "langchain-openai>=0.2",
+    "chromadb>=0.5",
+    "fastembed>=0.3",
+    "rank-bm25>=0.2",
+    "typer>=0.12",
+    "rich>=13",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+ui = ["gradio>=4.40"]
+judge-anthropic = ["anthropic>=0.40"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 110

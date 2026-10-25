@@ -1,0 +1,411 @@
+{
+  "registry": {
+    "28728463": {
+      "company_id": "28728463",
+      "legal_name": "Harbor Studio B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "41227216": {
+      "company_id": "41227216",
+      "legal_name": "Orion Studio B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "23718431": {
+      "company_id": "23718431",
+      "legal_name": "Kestrel Foods",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "sole_trader"
+    },
+    "81971316": {
+      "company_id": "81971316",
+      "legal_name": "Delta Works",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "sole_trader"
+    },
+    "87490893": {
+      "company_id": "87490893",
+      "legal_name": "Solstice Foods N.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "nv"
+    },
+    "47308985": {
+      "company_id": "47308985",
+      "legal_name": "Lumen Digital V.O.F.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "partnership"
+    },
+    "81691040": {
+      "company_id": "81691040",
+      "legal_name": "Orion Group B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "38317637": {
+      "company_id": "38317637",
+      "legal_name": "Juniper Labs B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "58586340": {
+      "company_id": "58586340",
+      "legal_name": "Canal Digital",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "sole_trader"
+    },
+    "24716857": {
+      "company_id": "24716857",
+      "legal_name": "Orion Trading V.O.F.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "partnership"
+    },
+    "82070937": {
+      "company_id": "82070937",
+      "legal_name": "Stichting Nova Labs",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "foundation"
+    },
+    "78139880": {
+      "company_id": "78139880",
+      "legal_name": "Stichting Juniper",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "foundation"
+    },
+    "90388981": {
+      "company_id": "90388981",
+      "legal_name": "Cobalt Trading B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "21496211": {
+      "company_id": "21496211",
+      "legal_name": "Harbor Labs N.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "nv"
+    },
+    "38427073": {
+      "company_id": "38427073",
+      "legal_name": "Quartz Digital B.V.",
+      "status": "active",
+      "incorporation_days_ago": 90,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "12823170": {
+      "company_id": "12823170",
+      "legal_name": "Orion Foods B.V.",
+      "status": "active",
+      "incorporation_days_ago": 150,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "19046318": {
+      "company_id": "19046318",
+      "legal_name": "Delta Studio B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "82374753": {
+      "company_id": "82374753",
+      "legal_name": "Windmill Studio B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "DE",
+      "entity_type": "bv"
+    },
+    "17270733": {
+      "company_id": "17270733",
+      "legal_name": "Canal Works B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "GB",
+      "entity_type": "bv"
+    },
+    "35714784": {
+      "company_id": "35714784",
+      "legal_name": "Lumen Studio",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "BE",
+      "entity_type": "sole_trader"
+    },
+    "72092888": {
+      "company_id": "72092888",
+      "legal_name": "Vega Services B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "22517517": {
+      "company_id": "22517517",
+      "legal_name": "Delta Trading B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "84593961": {
+      "company_id": "84593961",
+      "legal_name": "Solstice Digital B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "88406989": {
+      "company_id": "88406989",
+      "legal_name": "Delta Trading",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "sole_trader"
+    },
+    "34941004": {
+      "company_id": "34941004",
+      "legal_name": "Delta Labs B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "66267415": {
+      "company_id": "66267415",
+      "legal_name": "Delta Labs N.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "nv"
+    },
+    "52436584": {
+      "company_id": "52436584",
+      "legal_name": "Solstice Works B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "56843172": {
+      "company_id": "56843172",
+      "legal_name": "Juniper Group B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "99639081": {
+      "company_id": "99639081",
+      "legal_name": "Quartz Trading",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "sole_trader"
+    },
+    "25492573": {
+      "company_id": "25492573",
+      "legal_name": "Atlas Services B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "77834855": {
+      "company_id": "77834855",
+      "legal_name": "Kestrel Services B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "31687165": {
+      "company_id": "31687165",
+      "legal_name": "Atlas Services B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "67684996": {
+      "company_id": "67684996",
+      "legal_name": "Cobalt Group B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "93303777": {
+      "company_id": "93303777",
+      "legal_name": "Cobalt Digital V.O.F.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "partnership"
+    },
+    "45810056": {
+      "company_id": "45810056",
+      "legal_name": "Canal Studio B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "71780854": {
+      "company_id": "71780854",
+      "legal_name": "Harbor Studio B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "96098221": {
+      "company_id": "96098221",
+      "legal_name": "Juniper Foods B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "90070438": {
+      "company_id": "90070438",
+      "legal_name": "Delta Labs B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "68526649": {
+      "company_id": "68526649",
+      "legal_name": "Juniper Trading",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "sole_trader"
+    },
+    "19391725": {
+      "company_id": "19391725",
+      "legal_name": "Meridian Digital B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "49682169": {
+      "company_id": "49682169",
+      "legal_name": "Granite Digital B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "87844239": {
+      "company_id": "87844239",
+      "legal_name": "Kestrel Digital",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "sole_trader"
+    },
+    "32775593": {
+      "company_id": "32775593",
+      "legal_name": "Kestrel Works B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "73771720": {
+      "company_id": "73771720",
+      "legal_name": "Delta Studio N.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "nv"
+    },
+    "67062156": {
+      "company_id": "67062156",
+      "legal_name": "Nova Labs B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "69401199": {
+      "company_id": "69401199",
+      "legal_name": "Quartz Foods N.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "nv"
+    },
+    "94120751": {
+      "company_id": "94120751",
+      "legal_name": "Saffron Works B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "28572252": {
+      "company_id": "28572252",
+      "legal_name": "Granite Labs B.V.",
+      "status": "dissolved",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    },
+    "18357162": {
+      "company_id": "18357162",
+      "legal_name": "Polder Digital B.V.",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "US",
+      "entity_type": "bv"
+    },
+    "75529051": {
+      "company_id": "75529051",
+      "legal_name": "Canal Studio Trust",
+      "status": "active",
+      "incorporation_days_ago": 900,
+      "registration_country": "NL",
+      "entity_type": "bv"
+    }
+  },
+  "sanctioned_names": [
+    "Priya Nilsson",
+    "Elena Mulder"
+  ],
+  "pep_names": [
+    "Jonas Kowalski"
+  ]
+}
