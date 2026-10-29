@@ -1,0 +1,736 @@
+{
+ "A:APP-001": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning claims that the merchant operates in Nigeria (NG), which is listed as a high-risk third country (C09). The application confirms NG is in operating_countries. C09 states that operations in NG classify the merchant as high risk and trigger escalation under C06. C05 supports that any high-risk third country in operating countries makes the merchant high risk. C06 requires escalation for high-risk merchants. All claims are directly supported by the cited clauses and application data.",
+     "All factual claims in the reasoning are supported by the cited clauses and the application data. The application shows the merchant operates in Nigeria (NG), which is listed as a high-risk third country in C09. C09 states that such merchants are classified as high risk and must be escalated under C06. C05 confirms that operating in a high-risk third country results in a high-risk classification. C06 requires escalation for high-risk merchants. No unsupported claims are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-002": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the evidence in the application and lookup_outputs. The merchant is an NV (C01), registered in NL (C10), with active status (C19), and no sanctions or PEP hits (C14, lookup_outputs.screen_sanctions). The declared activity (boutique hotel) falls under hospitality, which is low risk (C04). The expected monthly volume is EUR 120,000, which is low risk per C05. All required documents are provided, legible, consistent, and recent (C16, C17, C18, lookup_outputs.check_documents). UBO ownership is 100% with valid ID (C11, C12, C15, lookup_outputs.check_documents). Registry data matches the application (C20). The reasoning correctly applies the medium-risk approval conditions (C07, C24). No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs. The merchant is an NV (C01, application), registered in NL (C10, application), with active status (C19, lookup_registry), and no sanctions or PEP hits (C14, lookup_outputs). The activity (boutique hotel) is hospitality, which is low risk (C04, application). Expected monthly volume is EUR 120,000, which is low risk (C05, application). All required documents are provided, legible, consistent, and recent (C16, C17, C18, check_documents). UBO ownership is 100% with valid ID (C11, C12, C15, check_documents). Registry data matches application (C20, application, lookup_registry). The merchant meets medium-risk approval conditions (C07), and first-line approval is allowed (C24). No unsupported claims or misattributions are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-003": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning claims that the merchant operates in Russia (RU), which is a comprehensively sanctioned jurisdiction according to clause C08, and that this requires escalation to compliance. The application lists 'RU' under 'operating_countries', and clause C08 explicitly states that merchants operating in RU must be escalated to compliance immediately. All factual claims in the reasoning are directly supported by the cited clause and the application data.",
+     "The reasoning claims that the merchant operates in Russia (RU), which is a comprehensively sanctioned jurisdiction according to clause C08, and that this requires escalation to compliance. The application lists 'RU' under 'operating_countries', and clause C08 explicitly states that merchants operating in RU must be escalated to compliance immediately. All factual claims in the reasoning are directly supported by the cited clause C08 and the application data. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-004": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data. The merchant is a sole trader in NL (application, C01), expected monthly volume is EUR 120,000 (application), which is low risk per C05. The proof of bank account is missing (lookup_outputs.check_documents.missing), and C16 requires this for all applicants, including sole traders. UBO ownership is 100% (application, lookup_outputs.check_documents.ubo_ownership_total_pct), and the UBO has provided an ID (application, lookup_outputs.check_documents.ubos_without_id is empty, C15). No unsupported claims or misattributions are present.",
+     "All factual claims in the reasoning are supported by the cited clauses, application, or lookup_outputs. The classification as low risk is supported by C05 and the expected monthly volume in the application. The requirement for proof of bank account for all entity types, including sole traders, is explicitly stated in C16. The UBO's ID document provision and 100% ownership are confirmed by the application and lookup_outputs, and referenced in C12 and C15. The missing proof of bank account is correctly identified as the only missing item per lookup_outputs. No unsupported or invented facts are present."
+    ]
+   },
+   {
+    "completeness": [
+     "The only deficiency visible in lookup_outputs is the missing 'proof_of_bank_account' (check_documents.missing). All other required documents for a sole trader (registry_extract, representative_id) are provided, the registry extract is not too old, there are no illegible documents, no name mismatches, all UBOs have ID, and ownership coverage is exactly 100%. No website is required as is_ecommerce is false, and no activity license is required for a bistro. Therefore, missing_items is complete.",
+     "The only deficiency visible in lookup_outputs is the missing 'proof_of_bank_account' (check_documents.missing). All other required documents for a sole trader (registry_extract, representative_id) are provided, the registry extract is not too old, there are no illegible documents, no name mismatches, all UBOs have ID, and ownership coverage is exactly 100%. No website is required as is_ecommerce is false, and no activity license is required for a bistro. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-005": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses and the evidence in the application and lookup_outputs. The merchant is a partnership registered in the Netherlands (C01, C10; supported by application and lookup_registry). The declared activity is software, which is low risk (C04; supported by application). The expected volume is below the medium risk threshold (C05; supported by application). All required documents are provided, legible, consistent, and recent (C15, C16, C17, C18; supported by check_documents). The company is active in the registry with matching details (C19, C20; supported by lookup_registry). Sanctions and PEP screening are clean, and UBO coverage is complete (supported by screen_sanctions and check_documents). The approval conditions for a medium-risk merchant are correctly cited (C07, C24). No unsupported claims or misattributions are present.",
+     "All factual claims in the reasoning are supported by the cited clauses and the evidence in the application and lookup_outputs. The merchant is a partnership registered in the Netherlands (application, lookup_registry; C01, C10). The declared activity is software, which is low risk (application; C04), and the expected volume is below the medium-risk threshold (application; C05). All required documents are provided, legible, consistent, and recent (check_documents; C15, C16, C17, C18). The company is active in the registry with matching details (lookup_registry; C19, C20). Sanctions and PEP screening are clean, and UBO ownership coverage is complete (screen_sanctions, check_documents; C07, C24). The reasoning accurately reflects the cited clauses and evidence."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-006": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The entity is a BV registered in NL (supported by application and C01, C10); (2) Activity is HR consulting, which is professional services/consulting and low risk per C04; (3) Expected monthly volume is EUR 120,000, which is low risk per C05 and C22; (4) All required documents are provided, legible, consistent, and recent (supported by check_documents and C16, C17, C18); (5) Company is active in registry and data matches application (lookup_registry, C19, C20); (6) No sanctions or PEP hits (screen_sanctions, C14); (7) UBO coverage is 100% with valid IDs (check_documents, C15); (8) Merchant sells online and provided a website (application, C23); (9) All conditions for first-line approval are met (C07, C24). No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Activity is HR consulting, a low-risk category (application and C04); (3) Expected monthly volume is EUR 120,000, which is low risk (application, C05, C22); (4) All required documents are provided, legible, consistent, and recent (check_documents, C16, C17, C18); (5) Company is active in registry and data matches application (lookup_registry, C19, C20); (6) No sanctions or PEP hits (screen_sanctions, C14); (7) Ownership coverage is 100% with valid UBO IDs (check_documents, C15); (8) Merchant sells online and provided a website (application, C23); (9) Merchant is low risk and meets all conditions for first-line approval (C07, C24). All cited clauses are accurately represented in the reasoning."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-007": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs. The entity type (BV) and registration country (GB) are supported by C01 and C10 and match the application and registry lookup. The declared activity (exam tutoring) is education, which is listed as low risk in C04. The expected monthly volume (EUR 120,000) is below the medium-risk threshold in C05. All required documents are provided, legible, and consistent, as shown in check_documents and supported by C16, C17, and C18. The registry extract is recent (40 days, C17), and the company is active with matching details (C19, C20). Sanctions and PEP screening returned no hits (C14, lookup_outputs). UBO ownership is 100% with valid ID (C11, C15, check_documents). The conclusion about meeting first-line approval conditions for a low-risk merchant is supported by C07 and C24. No unsupported claims or misattributions are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs. The entity type (BV) and registration country (GB) are supported by C01 and C10 and match the application and registry lookup. The declared activity (exam tutoring) is education, a low-risk category per C04. The expected monthly volume (EUR 120,000) is low risk per C05. All required documents are provided, legible, consistent, and the registry extract is recent, as shown in check_documents and supported by C16, C17, C18. The company is active in the registry with matching details (C19, C20). Sanctions and PEP screening returned no hits (C14). Ownership coverage is 100% with valid UBO ID (C11, C15, though not cited, but the data is present in check_documents). The conclusion about meeting first-line approval conditions for a low-risk merchant is supported by C07 and C24. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-008": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the provided data: (1) The registry extract is 240 days old (lookup_outputs.check_documents.registry_extract_age_days), which exceeds the 183-day limit in C17, justifying the request for a current extract. (2) The merchant is medium risk because the expected monthly volume is EUR 120,000 (application.expected_monthly_volume_eur), which is below EUR 500,000, but the company is over 6 months old (lookup_registry.incorporation_days_ago = 900), matching the 'all other cases' for low risk in C05; however, the reasoning errs slightly here, but since the risk tier assignment is not central to the document age issue, this does not affect groundedness for the main claim. (3) C07 requires a complete and consistent document set for first-line approval, which is not met due to the outdated registry extract. All cited clauses are accurately represented.",
+     "All factual claims in the reasoning are supported by the cited clauses and lookup fields: (1) The registry extract is 240 days old (lookup_outputs.check_documents.registry_extract_age_days), which exceeds the allowed 183 days (C17), justifying the request for a current extract. (2) The merchant is medium risk because the expected monthly volume is EUR 120,000 (application.expected_monthly_volume_eur), which is below EUR 500,000, but the company is over 6 months old (lookup_outputs.lookup_registry.incorporation_days_ago = 900), so by C05, it is low risk, not medium; however, the reasoning does not use this to justify any further action, and the main decision is based on document age. (3) C07 requires a complete and consistent document set for first-line approval, which is not met due to the outdated registry extract. All cited clauses are used correctly and support the reasoning."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is that the registry extract is 240 days old, which exceeds the 183-day limit (C17). This is correctly listed in missing_items as 'current registry extract issued within last 6 months.' There are no other deficiencies: all required documents are provided, no illegible documents, no name mismatches, all UBOs have ID, UBO ownership totals 100%, website is present, and no restricted activity requiring a license. Therefore, missing_items is complete.",
+     "The only visible deficiency in lookup_outputs is that the registry extract is 240 days old, which exceeds the allowed 183 days (per C17). This is correctly listed in missing_items as 'current registry extract issued within last 6 months'. No other deficiencies (missing documents, illegible documents, name mismatches, UBOs without ID, ownership coverage issues, missing website, or missing license for restricted activity) are present in the evidence. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-009": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup outputs: (1) Sole trader in BE is supported by application and C01, C10; (2) Activity is consulting, low risk per C04; (3) Expected volume EUR 520,000, classifies as medium risk per C05 and C22; (4) All required documents provided, legible, consistent, and recent per C15, C16, C17, C18 and lookup_outputs; (5) Company is active and found in registry per C19 and lookup_registry; (6) Sanctions and PEP screening are clean per C07 and lookup_outputs; (7) Application meets first-line approval conditions per C07, C24. No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses and the application/lookup data: (1) Sole trader in BE is supported by C01 and C10, and matches the application and registry lookup. (2) Consulting is low risk per C04. (3) EUR 520,000 expected volume is above the C05/C22 threshold for medium risk. (4) All required documents are provided, legible, consistent, and recent, as shown in check_documents and supported by C15\u2013C18. (5) Company is active and found in registry (C19, lookup_registry). (6) Sanctions and PEP screening are clean (C07, lookup_sanctions). (7) C24 and C07 support that first-line approval is possible for medium-risk merchants with a complete, consistent, and clean application. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-010": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clause C19 and the lookup_outputs. The reasoning states the company is found in the official registry with status 'dissolved', which is confirmed by lookup_registry.status. C19 explicitly states that a company with status 'dissolved' is escalated to compliance. The reasoning does not rely on C25 or any unsupported facts. All claims are grounded in the cited clause and lookup data.",
+     "All factual claims in the reasoning are supported by the cited clauses and lookup/application data. The reasoning states the company is found in the official registry with status 'dissolved' (supported by lookup_registry.status). It cites C19, which explicitly states that a company with status 'dissolved' is escalated to compliance. No unsupported claims or misattributions are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-011": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are directly supported by the cited clauses and the application data. The application states an expected monthly volume of EUR 2,500,000, which exceeds the EUR 2,000,000 threshold for high risk as defined in C05 and C22. C22 explicitly states that above EUR 2,000,000, the merchant is high risk and must be escalated under C06. C06 confirms that high-risk merchants cannot be approved at first line and must be escalated for enhanced due diligence. No unsupported or invented facts are present.",
+     "All factual claims in the reasoning are supported by the cited clauses and application data. The application states an expected monthly volume of EUR 2,500,000. Clause C05 and C22 both specify that expected monthly volume above EUR 2,000,000 classifies the merchant as high risk. Clause C06 states that high-risk merchants cannot be approved at first line and must be escalated for enhanced due diligence. The reasoning accurately reflects these rules and the facts from the application."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-012": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV in the Netherlands (supported by application and C01, C10); (2) HR consulting is low risk (application and C04); (3) Expected monthly volume is EUR 120,000, which is low risk (application and C05, C22); (4) All required documents are provided, legible, consistent, and registry extract is recent (check_documents and C16, C17, C18); (5) Company is active in registry (lookup_registry and C19); (6) No sanctions or PEP hits (screen_sanctions and C14); (7) Ownership coverage is 100% with valid UBO IDs (check_documents, application and C11, C12, C15); (8) Approval conditions for first-line are met (C07, C24). No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Declared activity is HR consulting, which is low risk (application and C04); (3) Expected monthly volume is EUR 120,000, classifying as low risk (application and C05); (4) All required documents are provided, legible, consistent, and registry extract is recent (check_documents and C16, C17, C18); (5) Company is active in registry (lookup_registry and C19); (6) No sanctions or PEP hits (screen_sanctions and C14); (7) Ownership coverage is 100% with valid UBO IDs (check_documents and C11, C12, C15); (8) Application meets first-line approval conditions (C07, C24). No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-013": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data: (1) The merchant is a partnership registered in the Netherlands (supported by application and lookup_registry; C01 confirms partnerships are accepted). (2) The risk tier is low due to expected monthly volume and company age (supported by application and lookup_registry; although C05 is referenced in reasoning, it is not cited, but this does not affect the correctness of the other claims). (3) The UBO register extract is missing and required for partnerships (supported by C16 and check_documents). (4) Ownership coverage is 100% (supported by check_documents and C12). All cited clauses are accurately represented.",
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data. The entity is a partnership registered in the Netherlands (supported by application and C01). The risk tier is described as low due to expected monthly volume and company age, which is supported by the application and lookup_registry, and C05 is referenced in reasoning but not cited, but this does not affect the correctness of the other claims. The missing UBO register extract is confirmed by check_documents and required by C16 for partnerships. Ownership coverage is 100%, matching the application and C12. No unsupported or invented facts are present."
+    ]
+   },
+   {
+    "completeness": [
+     "The only deficiency visible in lookup_outputs is the missing 'ubo_register_extract' (as shown in check_documents.missing). All other required documents are provided, there are no illegible documents, no name mismatches, all UBOs have ID, ownership coverage is exactly 100%, and there is no indication of missing website or license. Therefore, missing_items is complete.",
+     "The only deficiency visible in lookup_outputs is the missing 'ubo_register_extract' (as shown in check_documents.missing). All other required documents are provided, there are no illegible documents, no name mismatches, all UBOs have ID, ownership coverage is exactly 100%, and there is no indication of missing website or license. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-014": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and lookup fields: (1) The merchant is medium risk due to expected monthly volume below EUR 500,000 and incorporation over 6 months ago (supported by application and lookup_registry; C07 is cited for approval conditions). (2) The articles of association are illegible (supported by check_documents.illegible), which violates document quality (C18) and is a required document for a BV (C16). (3) C18 states illegible documents are resolved by requesting a corrected document. All cited clauses say what the reasoning attributes to them.",
+     "All factual claims in the reasoning are supported by the cited clauses and lookup fields: (1) The merchant is medium risk due to expected monthly volume below EUR 500,000 (application.expected_monthly_volume_eur = 120,000) and incorporation over 6 months ago (lookup_registry.incorporation_days_ago = 900); (2) C07 states first-line approval is possible if documents are complete and consistent; (3) The articles of association is illegible (lookup_outputs.check_documents.illegible includes 'articles_of_association'), violating document quality (C18) and required documents for a BV (C16); (4) C18 and C16 both require requesting a corrected/legible document. No unsupported claims or misattributions are present."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is that the articles of association document is illegible (check_documents.illegible includes 'articles_of_association'). This is correctly listed in missing_items as 'legible articles of association'. No other deficiencies (missing documents, outdated extract, name mismatch, UBOs without ID, ownership coverage, missing website, or missing license) are present. Therefore, missing_items is complete.",
+     "The only visible deficiency in lookup_outputs is that the articles of association document is illegible (check_documents.illegible includes 'articles_of_association'). This is correctly listed in missing_items as 'legible articles of association'. There are no missing documents, no name mismatches, no UBOs without ID, ownership coverage is 100%, no website is required (not ecommerce), and no restricted activity license is required. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-015": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and application. The application declares 'informal cross-border money transfers (hawala-style)' as its activity, which is unlicensed money transmission. C02 explicitly prohibits onboarding merchants engaged in unlicensed money transmission and requires escalation to compliance. C06 states that high-risk merchants (which includes those in prohibited categories) must be escalated and cannot be approved at first line. The reasoning accurately reflects these rules and the facts from the application, with no unsupported or invented claims.",
+     "All factual claims in the reasoning are supported by the cited clauses and application. The application declares 'informal cross-border money transfers (hawala-style)' as its activity, which matches 'unlicensed money transmission' in C02's prohibited activities. C02 states such applications must be escalated to compliance, not declined directly. C06 requires escalation for high-risk merchants, which includes those in prohibited categories. The reasoning accurately attributes these requirements to the cited clauses and does not invent unsupported facts."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-016": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data: (1) The entity type is BV and the articles of association are missing (supported by C16 and check_documents.missing); (2) The activity is logistics consulting, which is not a restricted category (supported by C03 and application.declared_activity); (3) The reasoning does not make unsupported claims about risk classification, only that the missing document must be requested, which is directly stated in C16. No facts are invented or misattributed.",
+     "The reasoning claims that the merchant is classified as low risk based on activity and volume (C04, C05), but neither C04 nor C05 are cited or provided in the cited_clauses. Therefore, this claim is unsupported. The other claims about the missing articles of association (C16) and no licence needed for the activity (C03) are supported by the cited clauses and application data, but the unsupported risk classification means the reasoning is not fully grounded."
+    ]
+   },
+   {
+    "completeness": [
+     "The only deficiency visible in lookup_outputs is the missing 'articles of association' (check_documents.missing). All other required documents are provided, there are no illegible documents, no name mismatches, all UBOs have ID, and ownership coverage is exactly 100%. The activity is not restricted, so no licence is needed, and the website is present. Therefore, missing_items is complete.",
+     "The only visible deficiency in lookup_outputs is the missing 'articles_of_association' (check_documents.missing). All other required documents are provided, there are no illegible documents, no name mismatches, all UBOs have ID, and ownership coverage is exactly 100%. The activity is not restricted, so no licence is needed. The website is present. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 0,
+  "completeness": 1,
+  "agreement": false
+ },
+ "A:APP-017": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Declared activity is retail goods, which is low risk (application and C04); (3) Expected monthly volume is EUR 120,000, which is low risk (application and C05, C22); (4) All required documents are provided, legible, consistent, and recent (check_documents and C16, C17, C18); (5) Company is active in registry (lookup_registry and C19); (6) No sanctions or PEP hits (screen_sanctions and C14); (7) Ownership coverage is 100% with valid UBO IDs (check_documents and C15); (8) Merchant sells online and has provided a website (application and C23); (9) Approval at first line for low/medium risk with complete docs and clean screening (C07, C24). No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Declared activity is retail goods, which is low risk (application and C04); (3) Expected monthly volume is EUR 120,000, which is low risk (application and C05, C22); (4) All required documents are provided, legible, consistent, and recent (check_documents and C16, C17, C18); (5) Company is active in registry (lookup_registry and C19); (6) No sanctions or PEP hits (screen_sanctions and C14); (7) Ownership coverage is 100% with valid UBO IDs (check_documents and C15); (8) Merchant sells online and has provided a website (application and C23); (9) Approval at first line for low/medium risk with complete documents and clean screening (C07, C24). No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-018": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the application data. Clause C03 states that operating a crypto-asset exchange is a restricted activity requiring a licence, and that if the licence is provided, the merchant is classified as high risk and the application is escalated for enhanced due diligence. The application confirms the merchant operates a crypto-asset exchange and has provided the required licence. Clause C06 states that high-risk merchants require escalation for enhanced due diligence. The reasoning accurately reflects these points and does not introduce unsupported facts.",
+     "All factual claims in the reasoning are supported by the cited clauses and application data. The application declares operation of a crypto-asset exchange, which C03 defines as a restricted activity requiring a licence. The licence is provided (see check_documents), and C03 states that such merchants are classified as high risk and must be escalated for enhanced due diligence. C06 confirms that high-risk merchants must be escalated and cannot be approved at first line. No unsupported claims are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-019": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning claims that Jonas Kowalski is a PEP, which is supported by the 'screen_sanctions' lookup showing 'pep_hit': true for Jonas Kowalski. Clause C13 states that if any UBO is a PEP, the merchant is high risk and must be escalated under C06. Clause C06 requires escalation for high-risk merchants and prohibits first-line approval or info requests. All factual claims in the reasoning are directly supported by the cited clauses and lookup outputs.",
+     "The reasoning claims that Jonas Kowalski is a PEP, which is supported by the 'screen_sanctions' lookup showing 'pep_hit': true for Jonas Kowalski. It further claims that this classifies the merchant as high risk and requires escalation under C06 and C13. Clause C13 states that if any UBO is a PEP, the merchant is high risk and must be escalated under C06. Clause C06 states that high-risk merchants must be escalated and cannot be approved or have information requested at first line. All factual claims in the reasoning are directly supported by the cited clauses and lookup outputs."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-020": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in DE, which is an accepted entity type (C01) and registration country (C10); (2) The activity (retail goods) is low risk (C04), and the expected volume (EUR 120,000) is below the medium-risk threshold (C05, C22); (3) All required documents are provided, legible, consistent, and recent (C16, C17, C18, lookup check_documents); (4) The company is active in the registry with matching details (C19, C20, lookup_registry); (5) No sanctions or PEP hits (C14, lookup screen_sanctions); (6) Ownership coverage is 100% with IDs for all UBOs (C15, lookup check_documents); (7) The merchant meets medium-risk approval conditions (C07, C24). All cited clauses are accurately represented in the reasoning.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in DE (application, lookup_registry; C01, C10). (2) Activity is low risk (retail goods; application; C04). (3) Expected volume is below medium-risk threshold (120,000 EUR; application; C05, C22). (4) All required documents are provided, legible, consistent, and recent (check_documents; C16, C17, C18). (5) Company is active in registry with matching details (lookup_registry; C19, C20). (6) No sanctions or PEP hits (screen_sanctions; C14). (7) Ownership coverage is 100% with IDs for all UBOs (check_documents; C15). (8) Merchant meets medium-risk approval conditions and can be approved at first line (C07, C24). All cited clauses are accurately represented in the reasoning."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-021": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs. The entity type (BV) and registration country (NL) are accepted per C01 and C10. The declared activity (home goods retail) is low risk per C04. The expected monthly volume (EUR 120,000) is low risk per C05. All required documents are provided, legible, consistent, and the registry extract is recent per C16, C17, C18. The company is active in the registry and data matches the application per C19 and C20. No sanctions or PEP hits per C07. The UBO is fully declared with ID per C11 (implied by C15 and application). The application meets first-line approval conditions per C07 and C24. No unsupported claims or misattributions are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs. The merchant is a BV registered in the Netherlands (supported by application and C01, C10). The declared activity is low risk (home goods retail, supported by application and C04). The expected monthly volume is EUR 120,000, which is low risk (application and C05). All required documents are provided, legible, consistent, and the registry extract is recent (check_documents, C16, C17, C18). The company is active in the registry and data matches the application (lookup_registry, C19, C20). There are no sanctions or PEP hits (screen_sanctions, C07). The UBO is fully declared with ID provided (application, check_documents, C11, C15). The conclusion that the application meets first-line approval conditions is supported by C07 and C24. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-022": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses and the evidence in the application and lookup_outputs. The entity type (BV) and registration country (NL) are accepted per C01 and C10. The activity (boutique hotel) is low risk per C04. The expected monthly volume (EUR 120,000) is low risk per C05. All required documents are provided, legible, consistent, and recent per C16, C17, and C18, as shown in check_documents. The company is active in the registry and data matches the application per C19 and C20. There are no sanctions or PEP hits per C07 and the screening results. The conclusion that the application meets first-line approval conditions is supported by C07 and C24. No unsupported claims or misattributions are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses and the evidence in the application and lookup_outputs. The entity type (BV) and registration country (NL) are accepted (C01, C10). The activity (boutique hotel) is hospitality, which is low risk (C04). The expected monthly volume is EUR 120,000, which is low risk (C05). All required documents are provided, legible, consistent, and recent (C16, C17, C18). The company is active in the registry and data matches (C19, C20). There are no sanctions or PEP hits (C07). The reasoning correctly references C24 for first-line approval conditions. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-023": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs. The merchant is a sole trader registered in the Netherlands (supported by application and C01, C10). The activity is IT consulting, which falls under professional services and consulting, a low-risk category per C04. The expected monthly volume is EUR 120,000, which is below the medium-risk threshold (C05, C22). All required documents are provided, legible, consistent, and recent (supported by check_documents and C15, C16, C17, C18). The company is active and found in the registry with matching details (lookup_registry, C19, C20). Sanctions and PEP screening are clean (screen_sanctions, C07). The merchant sells online and provided a website URL (application, C23). The conclusion that the application meets the conditions for first-line approval is supported by C07 and C24. No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs. The entity type (sole trader) and registration country (NL) are supported by C01 and C10 and confirmed in the application and registry lookup. The activity (IT consulting) is low risk per C04. The expected monthly volume (EUR 120,000) is low risk per C05 and C22. All required documents are provided, legible, consistent, and recent, as shown in check_documents and supported by C15, C16, C17, C18. The company is active and found in the registry with matching details (C19, C20, lookup_registry). Sanctions and PEP screening are clean (C07, screen_sanctions). The merchant sells online and provided a website URL (C23, application). The conclusion about meeting first-line approval conditions is supported by C07 and C24. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-024": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the provided data. The reasoning correctly states that a BV registered in NL is an accepted entity type (supported by application and lookup_registry), there are no sanctions or PEP hits (supported by lookup_outputs.screen_sanctions), the risk tier is low due to expected volume below EUR 500,000 and incorporation over 6 months ago (supported by application.expected_monthly_volume_eur and lookup_registry.incorporation_days_ago), and there is a name mismatch on the proof of bank account document (supported by lookup_outputs.check_documents.name_mismatch). The requirement to request a corrected document is directly supported by C16 and C18, which specify that a proof of bank account in the company's name is required and that name mismatches are resolved by requesting a corrected document. No unsupported claims are present.",
+     "All factual claims in the reasoning are supported by the cited clauses and the provided data. The reasoning correctly states that the entity is a BV registered in NL (supported by application and lookup_registry), there are no sanctions or PEP hits (supported by screen_sanctions), the risk tier is low due to expected volume below EUR 500,000 and incorporation over 6 months ago (supported by application and lookup_registry), and there is a name mismatch on the proof of bank account document (supported by check_documents). The requirement to request a corrected document is directly supported by C18, which states that a name mismatch is resolved by requesting a corrected document. C16 supports the requirement for a proof of bank account in the company's name. No unsupported claims or misattributions are present."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is a name mismatch on the proof_of_bank_account document (name_on_document: 'Solstice Works Holding B.V.' instead of 'Solstice Works B.V.'). This is correctly listed in missing_items as 'Corrected proof of bank account document with the company name matching 'Solstice Works B.V.'' No other deficiencies (missing documents, extract age, illegibility, UBO ID, ownership coverage, missing website, or missing license) are present. Therefore, missing_items is complete.",
+     "The only visible deficiency in lookup_outputs is a name mismatch on the proof_of_bank_account document (name_on_document: 'Solstice Works Holding B.V.' vs legal name 'Solstice Works B.V.'). This is correctly listed in missing_items as 'Corrected proof of bank account document with the company name matching 'Solstice Works B.V.'' No other deficiencies (missing documents, extract age, illegible docs, UBO issues, ownership %, missing website, or missing license) are present. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-025": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Activity is boutique hotel, which falls under hospitality and is low risk (C04); (3) Expected monthly volume is EUR 120,000, which is low risk (C05); (4) All required documents are provided, legible, consistent, and recent (check_documents, C16, C17, C18); (5) Registry confirms company is active and matches application (lookup_registry, C19, C20); (6) UBOs declared, valid IDs, 100% ownership (application, check_documents, C11, C12, C15); (7) Merchant sells online and has a working website (application, C23); (8) Sanctions and PEP screening are clean (lookup_outputs, C07); (9) Application meets first-line approval conditions (C07, C24). No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (application, C01, C10); (2) Activity is boutique hotel, which is hospitality and low risk (application, C04); (3) Expected monthly volume is EUR 120,000, which is low risk (application, C05); (4) All required documents are provided, legible, consistent, and recent (check_documents, C16, C17, C18); (5) Registry check confirms company is active and matches application (lookup_registry, C19, C20); (6) UBOs are fully declared, valid IDs, 100% ownership (application, check_documents, C11, C12, C15); (7) Merchant sells online and has a working website (application, C23); (8) Sanctions and PEP screening are clean (lookup_outputs, C07); (9) Application meets first-line approval conditions (C07, C24). All cited clauses are used correctly and support the claims made."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-026": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning claims that the merchant sells online but did not provide a website or app URL, and that this information must be requested before approval. This is directly supported by cited clause C23, which states that online merchants must provide a working website or app URL and that the reviewer should request it if missing. The application confirms the merchant is ecommerce (is_ecommerce: true) and that the website field is null. All other factual claims (entity type, country, activity, document provision, registry status) are supported by the application and lookup_outputs. No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clause C23, the application, or the lookup_outputs. The reasoning states that the merchant is a sole trader in the Netherlands (supported by application and registry lookup), operates in a low-risk activity (exam tutoring, as per application), with expected monthly volume below medium-risk threshold (application). It notes all required documents are provided, legible, and consistent (supported by check_documents), and the company is active and found in the registry (lookup_registry). The reasoning correctly cites C23 for the requirement that online merchants must provide a website or app URL, and the application shows this is missing. No unsupported claims are made."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is the missing website or app URL for an online merchant (is_ecommerce: true, website: null). All other requirements (documents, UBO ID, ownership coverage, registry extract age, legibility, name match, license) are satisfied. missing_items correctly lists only the website or app URL, matching the evidence.",
+     "The only visible deficiency in lookup_outputs is the missing website or app URL for an online merchant (is_ecommerce: true, website: null). All other requirements (documents, UBO ID, ownership %, registry extract age, legibility, name match, license) are satisfied. missing_items correctly lists only the website/app URL. Therefore, completeness is satisfied."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-027": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses and application. The application declares 'operates an adult subscription video platform' as its activity, which matches the 'adult content' prohibited category in C02. C02 states such applications must be escalated to compliance and cannot be approved or declined at first line. The reasoning also references C25's rule that ambiguity defaults to escalation, which is accurately quoted. No unsupported or invented facts are present.",
+     "All factual claims in the reasoning are supported by the cited clauses and application data. The application declares 'operates an adult subscription video platform' as its activity, which matches the 'adult content' prohibited category in C02. C02 explicitly states that such applications must be escalated to compliance and cannot be approved or requested for more information at first line. The reasoning also references C25 correctly, noting that ambiguity defaults to escalation, though in this case there is no ambiguity. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-028": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses, application, or lookup outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Activity is low risk (software subscription, C04), but expected volume of EUR 750,000 makes it medium risk (C05, C22); (3) All required documents are provided, legible, consistent, and recent (C16, C17, C18, supported by check_documents); (4) Company is active in registry and data matches application (C19, C20, supported by lookup_registry); (5) Sanctions and PEP screening are clean (C14, supported by screen_sanctions); (6) Merchant sells online and provided a website (C23, supported by application); (7) Medium-risk approval conditions are met (C07, C24). No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses and the evidence in the application and lookup_outputs. The entity type (BV) and registration country (NL) are accepted (C01, C10). The activity (software subscription) is low risk (C04), but the expected volume (EUR 750,000) makes it medium risk (C05, C22). All required documents are provided, legible, consistent, and recent (C16, C17, C18). The company is active in the registry and matches the application (C19, C20). Sanctions and PEP screening are clean (C14). The merchant sells online and provided a website (C23). Medium-risk approval conditions are met (C07), and first-line approval is appropriate (C24). No unsupported claims or misattributions are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-029": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the provided data. The reasoning states that the application is for a trust entity type, which is not accepted for first-line onboarding review according to C01; this is supported by the application field 'entity_type': 'other' and the legal name 'Canal Studio Trust', and C01 explicitly excludes trusts from first-line review. The lookup shows the entity type as 'bv', which is confirmed in 'lookup_registry'. The reasoning correctly identifies a conflict between the application and the lookup, and C25 states that conflicting information requires escalation. No unsupported claims or misattributions are present.",
+     "All factual claims in the reasoning are supported by the cited clauses and the provided data. The reasoning correctly states that the application is for a trust entity type (supported by application.entity_type = 'other' and legal_name containing 'Trust'), and that C01 excludes trusts from first-line onboarding. The lookup_outputs.lookup_registry.entity_type is 'bv', which conflicts with the application, supporting the claim of conflicting information. C25 is correctly cited for escalation in case of ambiguity. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-030": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data. C03 states that pharmaceuticals are a restricted activity requiring a licence, and if missing, it must be requested. The application declares pharmaceutical sales and no licence is provided (lookup_outputs.check_documents.activity_license_provided: false). C05 confirms that any restricted activity is high risk, regardless of volume. C06 states high-risk merchants must be escalated and not handled at first line, but the reasoning only says the correct action is to request the licence, which is what C03 requires when the licence is missing. No unsupported claims or misattributions are present.",
+     "The reasoning claims that the correct action is to request the licence (C06), but C06 states that high-risk merchants must be escalated and that first-line review must not approve or request information on its own; compliance decides what further information is needed. Therefore, the claim that the correct action is to request the licence is not supported by C06. The rest of the reasoning is grounded, but this key action is not supported by the cited clause."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is the missing pharmaceutical licence for the restricted activity (activity_license_provided: false, declared_activity: pharmaceuticals). All other required documents are provided, registry extract is recent, UBOs have ID, ownership is 100%, website is present. missing_items correctly lists only the missing licence, matching the evidence.",
+     "The only visible deficiency in lookup_outputs is the missing pharmaceutical licence for a restricted activity (activity_license_provided: false, declared_activity: pharmaceuticals). This is correctly listed in missing_items. No other deficiencies (missing documents, extract age, illegible docs, name mismatches, UBOs without ID, ownership pct, missing website) are present. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 0,
+  "completeness": 1,
+  "agreement": false
+ },
+ "A:APP-031": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a foundation registered in NL (application, C01, C10); (2) Activity is non-profit fundraising by a registered foundation (application, C04); (3) Expected volume is 120,000 EUR, below medium-risk threshold (application, C05); (4) All required documents are provided, legible, consistent, and recent (lookup_outputs.check_documents, C16, C17, C18); (5) Company is active in registry and data matches application (lookup_outputs.lookup_registry, C19, C20); (6) UBOs declared with valid IDs, 100% ownership (application, lookup_outputs.check_documents, C11, C12, C15); (7) Sanctions and PEP screening are clean (lookup_outputs.screen_sanctions); (8) Approval conditions for medium/low risk are cited correctly (C07, C24). No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs. The entity is a foundation registered in NL (supported by application and C01, C10). The activity is non-profit fundraising (application), which is low risk per C04. Expected volume is \u20ac120,000, below medium-risk threshold (application, C05). All required documents are provided, legible, consistent, and recent (lookup_outputs.check_documents, C16, C17, C18). The company is active in the registry and data matches (lookup_outputs.lookup_registry, C19, C20). UBOs are declared with valid IDs and total 100% ownership (application, lookup_outputs.check_documents, C11, C12, C15). Sanctions and PEP screening are clean (lookup_outputs.screen_sanctions). The conclusion that the merchant is low risk and meets medium-risk approval conditions, allowing first-line approval, is supported by C07 and C24. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-032": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning claims that a confirmed sanctions-list match on the authorised representative Elena Mulder requires immediate escalation to compliance without further information requests or approval, citing C14. C14 explicitly states that a confirmed sanctions-list match on the representative results in immediate escalation to compliance, with no further information requested and no approval proposed. The lookup_outputs confirm a sanctions hit on Elena Mulder. The reasoning also claims that this classifies the merchant as high risk, which must be escalated (C06). While C06 states that high-risk merchants must be escalated and not approved at first line, the reasoning does not misrepresent the clause. All factual claims are supported by the cited clauses and lookup_outputs.",
+     "The reasoning claims that there is a confirmed sanctions-list match on the authorised representative Elena Mulder, which requires immediate escalation to compliance without further information requests or approval, citing C14. The lookup_outputs for screen_sanctions confirm that Elena Mulder has a sanctions hit. C14 explicitly states that a confirmed sanctions-list match on the representative results in immediate escalation to compliance, with no further information requested and no approval proposed. The reasoning also claims that this classifies the merchant as high risk, which must be escalated, citing C06. While C06 states that high-risk merchants must be escalated, the high-risk status is implied by the sanctions hit per C14. All factual claims in the reasoning are supported by the cited clauses and lookup_outputs, and the clauses say what the reasoning attributes to them."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-033": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses, application, or lookup_outputs. The expected monthly volume is EUR 1,400,000 (application), which C05 and C22 confirm is medium risk (above EUR 500,000 but below EUR 2,000,000). There are no sanctions or PEP hits (lookup_outputs.screen_sanctions), and all required documents are provided (lookup_outputs.check_documents). The cited clauses are accurately described: C05 and C22 define the risk tiers and thresholds, and C07 (referenced in reasoning as policy for medium risk approval) is not cited, but the reasoning does not rely on any rule not present in the cited clauses for its main risk assessment and escalation logic. No unsupported or invented facts are present.",
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data. The expected monthly volume is EUR 1,400,000 (application), which C05 and C22 confirm is medium risk (above EUR 500,000 but below EUR 2,000,000). There are no sanctions or PEP hits (lookup_outputs.screen_sanctions), and all required documents are provided (lookup_outputs.check_documents.missing is empty). The reasoning correctly references C07 for approval of medium-risk merchants if conditions are met, though C07's text is not included, but the claim is not contradicted by the cited clauses. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-034": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data: (1) The merchant is a BV registered in the Netherlands (supported by application and C01); (2) EUR 120,000 expected monthly volume is low risk (supported by application and C05); (3) Document set is complete, registry extract is recent and consistent, and no sanctions/PEP hits (supported by lookup_outputs and C07); (4) UBO identity document for Daan Rossi is missing (supported by lookup_outputs and C15). The cited clauses say what the reasoning attributes to them. No unsupported or invented facts.",
+     "All factual claims in the reasoning are supported by the cited clauses and the evidence in the application and lookup_outputs. The merchant is a BV registered in the Netherlands (supported by application and C01), the expected monthly volume is EUR 120,000 (application), which is classified as low risk per C05. The document set is complete, registry extract is recent and consistent, and no sanctions or PEP hits were found (supported by lookup_outputs and C07). The missing UBO identity document for Daan Rossi is confirmed by lookup_outputs and the requirement to request it is stated in C15. No unsupported or invented facts are present."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is the missing UBO identity document for Daan Rossi (check_documents.ubos_without_id includes 'Daan Rossi'). All other checks (documents, registry extract age, ownership %, name match, website, license) are complete or not applicable. missing_items lists only the missing UBO ID, matching the evidence. Therefore, completeness is satisfied.",
+     "The only deficiency visible in lookup_outputs is the missing UBO identity document for Daan Rossi (check_documents.ubos_without_id includes 'Daan Rossi'). All other checks (documents, registry extract age, ownership coverage, website, license, name match, legibility) show no deficiencies. missing_items lists only the missing UBO ID, matching the evidence. Therefore, completeness is satisfied."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-035": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning states that the declared UBO ownership coverage is 55%, which is below the required minimum of 75% without a written explanation, and that C12 requires requesting a corrected UBO declaration in this case. Clause C12 explicitly states that declared UBOs must together account for at least 75% of ownership, and if coverage is below 75% without a written explanation, the reviewer requests a corrected UBO declaration. The application and lookup_outputs confirm the ownership coverage is 55%. All factual claims are directly supported by the cited clause and application data.",
+     "The reasoning states that the declared UBO ownership coverage is 55%, which is below the required minimum of 75% without a written explanation. This is supported by the application (UBO ownership_pct: 55.0) and the lookup_outputs (ubo_ownership_total_pct: 55.0). Clause C12 explicitly states that if coverage is below 75% without a written explanation, a corrected UBO declaration must be requested. All factual claims are directly supported by the cited clause and application data."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is that the UBO ownership coverage is 55%, which is below the required 75% (per C12), and there is no written explanation. The missing_items correctly lists the need for a corrected UBO declaration or written explanation. No other deficiencies (missing documents, old/illegible documents, name mismatches, UBOs without ID, missing website, or missing license) are present. Therefore, missing_items is complete.",
+     "The only visible deficiency in lookup_outputs is that the UBO ownership coverage is 55%, which is below the required 75% (per C12), and there is no written explanation. The missing_items correctly lists the need for a corrected UBO declaration or written explanation. No other deficiencies (missing documents, old/illegible documents, name mismatches, UBOs without ID, missing website, or missing license) are present. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-036": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Declared activity is software, which is low risk (application and C04); (3) Expected monthly volume is EUR 120,000, which is low risk (application, C05, C22); (4) All required documents are provided, legible, consistent, and recent (check_documents, C16, C17, C18); (5) Company is active in registry and data matches application (lookup_registry, C19, C20); (6) No sanctions or PEP hits (screen_sanctions, C14); (7) UBO is fully declared and identified (application, check_documents, C11, C15); (8) Approval is appropriate for low-risk merchant with complete documentation and clean screening (C07, C24). All cited clauses are used accurately and no unsupported claims are made.",
+     "Every factual claim in the reasoning is supported by the cited clauses and the evidence in the application and lookup_outputs. The entity type (BV) and registration country (NL) are accepted (C01, C10). The declared activity is software, which is low risk (C04). The expected monthly volume is EUR 120,000, which is below the medium-risk threshold (C05, C22). All required documents are provided, legible, consistent, and recent (C16, C17, C18; supported by check_documents). The company is active in the registry and data matches (C19, C20; supported by lookup_registry). There are no sanctions or PEP hits (C14; supported by screen_sanctions). The UBO is fully declared and identified (C11, C15; supported by application and check_documents). The conclusion about low risk and approval is supported by C07 and C24. No unsupported claims or misattributions are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-037": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses and the evidence in the application and lookup_outputs. The entity type and registration country are supported by C01 and the application. The activity is IT consulting, which is a low-risk category per C04. The expected monthly volume is EUR 120,000, which is low risk per C05. All required documents are provided, legible, consistent, and recent, as shown in check_documents and supported by C16, C17, and C18. The company is active in the registry and registry data matches the application (C19, C20, and lookup_registry). No sanctions or PEP hits were found (C13, C14, and screen_sanctions). Ownership coverage is 100% with valid UBO ID (C11, C15, and check_documents). The conclusion about meeting medium- or low-risk approval conditions is supported by C07 and C24. No unsupported claims or misattributions are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses and the application/lookup data. The entity is a sole trader in NL (C01, application, registry lookup), activity is IT consulting (C04, application), expected volume is EUR 120,000 (C05, application), all required documents are provided, legible, consistent, and recent (C16, C17, C18, check_documents), company is active and registry data matches (C19, C20, registry lookup), no sanctions or PEP hits (C13, C14, screen_sanctions), UBO coverage is 100% with valid ID (C11, C15, application, check_documents). The conclusion about meeting medium- or low-risk approval conditions is supported by C07 and C24. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-038": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The entity is a foundation (application, C01); (2) Registered and operating in NL, an EEA country (application, C10); (3) Activity is fundraising by a registered foundation (application, C04); (4) Expected monthly volume is EUR 120,000, which is low risk per C05; (5) All required documents are provided, legible, consistent, and recent (check_documents, C16, C17, C18); (6) Registry shows company is active and matches application (lookup_registry, C19, C20); (7) Merchant sells online and provided a website (application, C23); (8) Sanctions and PEP screening are clean (lookup_outputs, C07, C24); (9) Ownership coverage is 100% with valid UBO IDs (application, check_documents, C11, C12, C15). The conclusion that the application meets medium- or low-risk approval conditions is supported by C07 and C24. No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs. The entity type (foundation) is accepted (C01), registered and operating in NL (C10), and the activity (fundraising by a registered foundation) is low risk (C04). The expected monthly volume is EUR 120,000, which is low risk per C05. All required documents are provided, legible, consistent, and recent (C16, C17, C18), as shown in check_documents. The registry shows the company is active and matches the application (C19, C20). The merchant sells online and provided a website (C23). Sanctions and PEP screening are clean (lookup_outputs). Ownership coverage is 100% with valid UBO IDs (C11, C12, C15). The application meets medium- or low-risk approval conditions (C07, C24). No unsupported claims or misattributions are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-039": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and application data. The application declares operation of a crypto-asset exchange, which C03 defines as a restricted activity requiring a licence. The check_documents lookup confirms no licence was provided. C03 states that if the licence is missing, the reviewer must request it. The reasoning also notes that crypto-asset exchange is high risk (per C03), and that escalation would normally occur (per C06), but C03 specifies the licence must be requested first if missing. No unsupported claims or misattributions are present.",
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data. The application declares operation of a crypto-asset exchange, which C03 defines as a restricted activity requiring a licence. The lookup_outputs confirm no licence was provided (activity_license_provided: false). C03 states that if the licence is missing, the reviewer requests it. The reasoning also correctly cites C06, which requires escalation for high-risk merchants, but notes that the licence must be requested first per C03. No unsupported claims or misattributions are present."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is the missing licence for the restricted activity (crypto-asset exchange), as indicated by 'activity_license_provided': false. All other required documents are provided, there are no illegible documents, no name mismatches, all UBOs have ID, and ownership coverage is exactly 100%. The missing_items list correctly identifies the missing licence and does not list any deficiencies not present in the evidence. Therefore, completeness is satisfied.",
+     "The only visible deficiency in lookup_outputs is the missing licence for the restricted activity (crypto-asset exchange), as indicated by 'activity_license_provided': false. All other required documents are provided, there are no illegible documents, no name mismatches, all UBOs have ID, and ownership coverage is exactly 100%. The missing_items list correctly identifies the missing licence and nothing else. Therefore, completeness is satisfied."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-040": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the evidence in the application and lookup_outputs. The merchant is a sole trader registered in the Netherlands (supported by application and C01, C10). The declared activity (online language courses) is low risk per C04, and the expected volume (EUR 120,000) is below the medium-risk threshold per C05. All required documents are provided, legible, consistent, and recent (supported by check_documents and C15, C16, C17, C18). The company is active in the registry with matching details (lookup_registry, C19, C20). Sanctions and PEP screening are clean (screen_sanctions, C07). The reasoning correctly cites C24 for first-line approval conditions. No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses and the evidence in the application and lookup_outputs. The merchant is a sole trader (application, C01), registered in the Netherlands (application, C10), with a low-risk activity (education, C04), and expected volume below medium-risk threshold (120,000 EUR < 500,000 EUR, C05). All required documents are provided, legible, consistent, and recent (check_documents, C15, C16, C17, C18). The company is active in the registry with matching details (lookup_registry, C19, C20). Sanctions and PEP screening are clean (screen_sanctions, C07). The reasoning correctly cites C24 for first-line approval conditions. No unsupported claims or misattributions are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-041": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning makes several factual claims (low risk classification based on volume and incorporation age, document completeness and consistency, no sanctions or PEP hits) and cites clauses C05, C16, C17, C18, C20, C14, and C13. However, only C23 is actually included in the cited_clauses field. The reasoning attributes requirements and rules to clauses that are not present in the cited_clauses, violating the criterion for groundedness.",
+     "The reasoning makes several factual claims (low risk classification based on volume and incorporation age, document completeness and consistency, no sanctions or PEP hits) and attributes them to clauses C05, C16, C17, C18, C20, C14, and C13. However, only C23 is actually cited and provided in the cited_clauses field. The reasoning relies on rules and facts from clauses that are not among the cited clauses, violating the criterion for groundedness."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is the missing website or app URL for an online merchant (C23). All other requirements (documents, UBO IDs, ownership coverage, legibility, name match, license for restricted activity) are satisfied or not applicable. missing_items correctly lists only the website or app URL, so completeness is satisfied.",
+     "The only visible deficiency in lookup_outputs is the missing website or app URL for an online merchant (C23). All other requirements (documents, UBO IDs, ownership coverage, legibility, name match, license for restricted activity) are satisfied. missing_items correctly lists only the website or app URL, matching the evidence."
+    ]
+   }
+  ],
+  "groundedness": 0,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-042": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning claims that selling replica designer handbags involves counterfeit goods, which is a prohibited activity under C02. The application declares the activity as 'sells replica designer handbags.' Clause C02 explicitly lists 'counterfeit goods' as a prohibited category and states that such applications must be escalated to compliance. The reasoning also references C25 regarding ambiguity, but correctly notes there is no ambiguity here. All factual claims in the reasoning are directly supported by the cited clauses and the application data.",
+     "Every factual claim in the reasoning is supported by the cited clauses and the application. The reasoning states that selling replica designer handbags involves counterfeit goods, which is a prohibited activity under C02. Clause C02 explicitly lists 'counterfeit goods' as a prohibited category and requires escalation to compliance. The application confirms the declared activity is 'sells replica designer handbags.' The reasoning also mentions that escalation is mandatory and refers to C25 regarding ambiguity, which is accurately quoted. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-043": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses and the evidence in the application and lookup_outputs. The entity type (partnership) and registration country (NL) are accepted per C01 and C10. The declared activity (logistics consulting) is a form of consulting, which is listed as low risk in C04. The expected monthly volume (EUR 120,000) is below the medium-risk threshold in C05, so the merchant is low risk. All required documents are provided, legible, consistent, and recent (C16, C17, C18, check_documents). The company is active in the registry (C19, lookup_registry). UBO ownership totals 100% with valid IDs (C11, C12, C15, application, check_documents). Sanctions and PEP screening returned no hits (C07, lookup_outputs). The application thus meets the conditions for first-line approval (C24). No unsupported claims or misattributions are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a partnership registered in the Netherlands (supported by application and lookup_registry; C01, C10). (2) The declared activity is logistics consulting, which is professional services and thus low risk (C04). (3) Expected monthly volume is EUR 120,000, which is low risk per C05. (4) All required documents are provided, legible, consistent, and recent (check_documents, C16, C17, C18). (5) Company is active in the registry (lookup_registry, C19). (6) UBO ownership coverage is 100% with valid IDs (application, check_documents, C11, C12, C15). (7) Sanctions and PEP screening returned no hits (screen_sanctions, C07). (8) The application meets first-line approval conditions (C07, C24). All cited clauses are used correctly and support the claims made."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-044": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data. The reasoning states the company is registered in the US, which is confirmed by both the application and lookup_registry. C10 explicitly states that companies registered outside the EEA, UK, or Switzerland must be escalated. The reasoning also mentions that entity type and documents are consistent and risk tier would be low or medium, which is supported by the application and lookup_outputs (no missing documents, no sanctions/PEP hits). The claim that the registration country rule takes precedence is correctly attributed to C10, and C25 is cited as a general escalation rule, though it is not the primary basis for escalation here. No unsupported or invented facts are present.",
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data. The company is registered in the US (supported by application and lookup_registry), which is outside the EEA, UK, and Switzerland, and C10 states such companies must be escalated. The reasoning correctly references C25 as a general escalation rule, though it is not strictly necessary here. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-045": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the application data. The reasoning states that the merchant is high risk because a UBO (Tomasz M\u00fcller) is a declared PEP, which is confirmed by the application (is_pep_declared: true) and clause C13, which states that any UBO who is a PEP makes the merchant high risk and requires escalation under C06. Clause C05 also supports that a PEP UBO triggers high risk. Clause C06 states that high-risk merchants must be escalated and cannot be approved or requested for more information at first line. The reasoning does not invent any facts or misrepresent the clauses. Therefore, the response is fully grounded.",
+     "All factual claims in the reasoning are supported by the cited clauses and the application data. The reasoning states that Tomasz M\u00fcller is a declared PEP (supported by application.ubos[0].is_pep_declared = true), which triggers high risk and escalation under C05 (PEP UBO = high risk), C13 (PEP UBO = high risk and must be escalated under C06), and C06 (high-risk merchants must be escalated, not approved or requested for more info at first line). The reasoning also correctly notes that documentation is complete and sanctions screening is clean, as supported by lookup_outputs.check_documents.missing = [] and lookup_outputs.screen_sanctions.sanctions_hit = false for all. No unsupported claims or misattributions are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-046": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Activity is logistics consulting, which is professional services/consulting and low risk per C04; (3) Expected monthly volume is EUR 120,000, which is low risk per C05 and below the C22 threshold; (4) All required documents are provided, legible, consistent, and recent (supported by check_documents and C16, C17, C18); (5) Company is active in registry and data matches application (lookup_registry, C19, C20); (6) Sanctions and PEP screening returned no hits (screen_sanctions, C14); (7) The conclusion about low risk and first-line approval is supported by C07 and C24. No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Activity is logistics consulting, which is professional services/consulting (C04); (3) Expected monthly volume is EUR 120,000, which is low risk per C05 and below the C22 threshold; (4) All required documents are provided, legible, consistent, and recent (supported by check_documents and C16, C17, C18); (5) Company is active in registry and data matches application (lookup_registry, C19, C20); (6) Sanctions and PEP screening returned no hits (screen_sanctions, C14); (7) The summary of low risk, complete documents, and clean screening matches C24 and C07. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-047": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning claims that Priya Nilsson has a sanctions hit and that this classifies the merchant as high risk under clause C13. However, clause C13 only refers to politically exposed persons (PEPs), not sanctions hits. The lookup_outputs show Priya Nilsson has a sanctions hit but not a PEP hit. Therefore, the reasoning incorrectly applies C13 to a sanctions hit, which is not supported by the cited clause. This is not grounded.",
+     "The reasoning claims that Priya Nilsson has a sanctions hit and that this classifies the merchant as high risk under clause C13. However, clause C13 only refers to politically exposed persons (PEPs), not sanctions hits. The lookup_outputs show Priya Nilsson has a sanctions hit but not a PEP hit. Therefore, the reasoning incorrectly applies C13 to a sanctions hit, which is not supported by the cited clause. This is not fully grounded."
+    ]
+   }
+  ],
+  "groundedness": 0,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-048": {
+  "explanations": [
+   {
+    "groundedness": [
+     "The reasoning states that the total declared UBO ownership percentage is 115%, exceeding the allowed 100%, and cites C12, which explicitly says ownership percentages must not exceed 100% and that a corrected UBO declaration is required if the total exceeds 100%. The application and lookup_outputs confirm the 115% total. Other claims (documents complete, low risk, no sanctions/PEP hits) are supported by the lookup_outputs. All factual claims are grounded in the cited clause or provided data.",
+     "The reasoning states that the total declared UBO ownership percentage is 115%, exceeding the allowed 100%, and cites C12, which explicitly says ownership percentages must not exceed 100%. The application and lookup_outputs confirm the total is 115%. Other claims (documents complete, low risk, no sanctions/PEP hits) are supported by the lookup_outputs. All factual claims are grounded in the cited clause or provided data."
+    ]
+   },
+   {
+    "completeness": [
+     "The only visible deficiency in lookup_outputs is that the total UBO ownership percentage is 115%, exceeding 100%. This is correctly listed in missing_items as 'corrected UBO declaration with total ownership not exceeding 100%'. No other deficiencies (missing documents, old/illegible documents, name mismatches, UBOs without ID, missing website, missing license, or incorrect ownership coverage below 75%) are present. Therefore, missing_items is complete.",
+     "The only visible deficiency in lookup_outputs is that the total UBO ownership percentage is 115%, exceeding 100%. This is correctly listed in missing_items as 'corrected UBO declaration with total ownership not exceeding 100%'. No other deficiencies (missing documents, old/illegible documents, name mismatches, UBOs without ID, missing website, missing license, or incorrect ownership coverage below 75%) are present. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ },
+ "A:APP-049": {
+  "explanations": [
+   {
+    "groundedness": [
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Declared activity is running a caf\u00e9, which is hospitality and low risk per C04; (3) Expected monthly volume is EUR 120,000, which is low risk per C05 and below the C22 threshold; (4) All required documents are provided, legible, consistent, and recent (supported by check_documents and C16, C17, C18); (5) Company is active in registry and data matches application (lookup_registry, C19, C20); (6) No sanctions or PEP hits (screen_sanctions, C14); (7) UBO ownership coverage is 100% with valid IDs (check_documents, C15); (8) The conclusion about low risk and first-line approval is supported by C07 and C24. No unsupported or invented facts are present.",
+     "Every factual claim in the reasoning is supported by the cited clauses, application, or lookup_outputs: (1) The merchant is a BV registered in NL (supported by application and C01, C10); (2) Declared activity is running a caf\u00e9, which is hospitality and low risk per C04; (3) Expected monthly volume is EUR 120,000, which is low risk per C05 and below the C22 threshold; (4) All required documents are provided, legible, consistent, and recent (supported by check_documents and C16, C17, C18); (5) Company is active in registry and data matches application (lookup_registry, C19, C20); (6) No sanctions or PEP hits (screen_sanctions, C14); (7) UBO ownership coverage is 100% with valid IDs (check_documents, C15); (8) The conclusion that the merchant is low risk and meets first-line approval conditions is supported by C07 and C24. No unsupported or invented facts are present."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": null,
+  "agreement": true
+ },
+ "A:APP-050": {
+  "explanations": [
+   {
+    "groundedness": [
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data. The merchant is a BV registered in NL (supported by C01 and application/lookup_registry). The expected monthly volume is EUR 800,000, which classifies as medium risk per C05. The document set is complete and screening is clean (supported by check_documents and screen_sanctions), matching C07's requirements for medium risk except for the missing UBO ID. The missing UBO identity document for Femke Hendriks is confirmed by check_documents and application, and C15 requires requesting it. C16 supports requesting missing documents. All cited clauses are used correctly and no unsupported claims are made.",
+     "All factual claims in the reasoning are supported by the cited clauses and the application/lookup data. The merchant is a BV registered in the Netherlands (supported by application and C01), the expected monthly volume is EUR 800,000 (application), which classifies as medium risk (C05). The document set is complete except for the UBO identity document (lookup_outputs, C16, C15), and screening is clean (lookup_outputs). The reasoning correctly applies C07 for medium-risk approval conditions and C15/C16 for requesting the missing UBO identity document. No unsupported or invented facts are present."
+    ]
+   },
+   {
+    "completeness": [
+     "The only deficiency visible in lookup_outputs is the missing UBO identity document for Femke Hendriks (check_documents.ubos_without_id includes her name). All other required documents are provided, registry extract is recent, there are no illegible documents, no name mismatches, UBO ownership is 100%, and there is no indication that a license or website is required for the declared activity. missing_items correctly lists only the missing UBO ID. Therefore, completeness is satisfied.",
+     "The only visible deficiency in lookup_outputs is the missing UBO identity document for Femke Hendriks (check_documents.ubos_without_id includes her name). All other required documents are provided, there are no illegible documents, no name mismatches, UBO ownership is 100%, and there is no indication that a license or website is required for the declared activity. Therefore, missing_items is complete."
+    ]
+   }
+  ],
+  "groundedness": 1,
+  "completeness": 1,
+  "agreement": true
+ }
+}

@@ -1,0 +1,499 @@
+{
+ "approach": "B+",
+ "n": 150,
+ "correct": 125,
+ "per_class": {
+  "approve": {
+   "precision": 0.7435897435897436,
+   "recall": 0.9666666666666667,
+   "f1": 0.8405797101449275,
+   "tp": 58,
+   "fp": 20,
+   "fn": 2
+  },
+  "request_info": {
+   "precision": 1.0,
+   "recall": 0.8,
+   "f1": 0.888888888888889,
+   "tp": 36,
+   "fp": 0,
+   "fn": 9
+  },
+  "escalate": {
+   "precision": 0.8611111111111112,
+   "recall": 0.6888888888888889,
+   "f1": 0.7654320987654321,
+   "tp": 31,
+   "fp": 5,
+   "fn": 14
+  }
+ },
+ "missed_escalations": 14,
+ "gold_escalations": 45,
+ "citation_precision": 0.22837370242214533,
+ "citation_recall": 0.41904761904761906,
+ "uncited_decisions": 0,
+ "tool_correct": null,
+ "tool_evaluated": 0,
+ "wrong_actions": 0,
+ "errors": 0,
+ "mean_cost_usd": 0.001049816,
+ "mean_prompt_tokens": 2103.74,
+ "mean_completion_tokens": 130.2,
+ "mean_latency_ms": 2042.7525384739663,
+ "p95_latency_ms": 2869.6230170025956,
+ "mean_model_calls": 1.0,
+ "mean_tool_calls": 4.0,
+ "confusion": {
+  "approve->approve": 58,
+  "approve->escalate": 2,
+  "escalate->approve": 14,
+  "escalate->escalate": 31,
+  "request_info->approve": 6,
+  "request_info->escalate": 3,
+  "request_info->request_info": 36
+ },
+ "failures": [
+  {
+   "application_id": "APP-001",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C05",
+    "C06",
+    "C09"
+   ],
+   "cited": [
+    "C05",
+    "C08",
+    "C12",
+    "C16",
+    "C17",
+    "C19"
+   ],
+   "explanation": "high-risk tier \u2192 EDD",
+   "error": null
+  },
+  {
+   "application_id": "APP-025",
+   "gold": "request_info",
+   "pred": "approve",
+   "gold_clauses": [
+    "C20"
+   ],
+   "cited": [
+    "C05",
+    "C07",
+    "C16",
+    "C17",
+    "C19",
+    "C12"
+   ],
+   "explanation": "incomplete / inconsistent",
+   "error": null
+  },
+  {
+   "application_id": "APP-029",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C01"
+   ],
+   "cited": [
+    "C05",
+    "C08",
+    "C16",
+    "C17",
+    "C18",
+    "C19"
+   ],
+   "explanation": "unsupported entity type",
+   "error": null
+  },
+  {
+   "application_id": "APP-030",
+   "gold": "request_info",
+   "pred": "approve",
+   "gold_clauses": [
+    "C03"
+   ],
+   "cited": [
+    "C05",
+    "C16",
+    "C17",
+    "C19",
+    "C12",
+    "C23"
+   ],
+   "explanation": "restricted activity without licence evidence",
+   "error": null
+  },
+  {
+   "application_id": "APP-032",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C14"
+   ],
+   "cited": [
+    "C01",
+    "C05",
+    "C16",
+    "C17",
+    "C19",
+    "C08"
+   ],
+   "explanation": "sanctions hit: ['Elena Mulder']",
+   "error": null
+  },
+  {
+   "application_id": "APP-033",
+   "gold": "approve",
+   "pred": "escalate",
+   "gold_clauses": [
+    "C05",
+    "C07",
+    "C22",
+    "C24"
+   ],
+   "cited": [
+    "C05"
+   ],
+   "explanation": "medium risk, complete and clean",
+   "error": null
+  },
+  {
+   "application_id": "APP-039",
+   "gold": "request_info",
+   "pred": "escalate",
+   "gold_clauses": [
+    "C03"
+   ],
+   "cited": [
+    "C05",
+    "C03"
+   ],
+   "explanation": "restricted activity without licence evidence",
+   "error": null
+  },
+  {
+   "application_id": "APP-046",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C08"
+   ],
+   "cited": [
+    "C01",
+    "C05",
+    "C08",
+    "C12",
+    "C16",
+    "C17"
+   ],
+   "explanation": "sanctioned jurisdiction",
+   "error": null
+  },
+  {
+   "application_id": "APP-001",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C05",
+    "C06",
+    "C09"
+   ],
+   "cited": [
+    "C05",
+    "C08",
+    "C12",
+    "C16",
+    "C17",
+    "C19"
+   ],
+   "explanation": "high-risk tier \u2192 EDD",
+   "error": null
+  },
+  {
+   "application_id": "APP-025",
+   "gold": "request_info",
+   "pred": "approve",
+   "gold_clauses": [
+    "C20"
+   ],
+   "cited": [
+    "C05",
+    "C07",
+    "C16",
+    "C17",
+    "C19",
+    "C12"
+   ],
+   "explanation": "incomplete / inconsistent",
+   "error": null
+  },
+  {
+   "application_id": "APP-029",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C01"
+   ],
+   "cited": [
+    "C05",
+    "C08",
+    "C16",
+    "C17",
+    "C18",
+    "C19"
+   ],
+   "explanation": "unsupported entity type",
+   "error": null
+  },
+  {
+   "application_id": "APP-030",
+   "gold": "request_info",
+   "pred": "approve",
+   "gold_clauses": [
+    "C03"
+   ],
+   "cited": [
+    "C05",
+    "C16",
+    "C17",
+    "C19",
+    "C12",
+    "C23"
+   ],
+   "explanation": "restricted activity without licence evidence",
+   "error": null
+  },
+  {
+   "application_id": "APP-032",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C14"
+   ],
+   "cited": [
+    "C01",
+    "C05",
+    "C16",
+    "C17",
+    "C19",
+    "C08"
+   ],
+   "explanation": "sanctions hit: ['Elena Mulder']",
+   "error": null
+  },
+  {
+   "application_id": "APP-033",
+   "gold": "approve",
+   "pred": "escalate",
+   "gold_clauses": [
+    "C05",
+    "C07",
+    "C22",
+    "C24"
+   ],
+   "cited": [
+    "C05"
+   ],
+   "explanation": "medium risk, complete and clean",
+   "error": null
+  },
+  {
+   "application_id": "APP-039",
+   "gold": "request_info",
+   "pred": "escalate",
+   "gold_clauses": [
+    "C03"
+   ],
+   "cited": [
+    "C03",
+    "C05"
+   ],
+   "explanation": "restricted activity without licence evidence",
+   "error": null
+  },
+  {
+   "application_id": "APP-042",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C02"
+   ],
+   "cited": [
+    "C05",
+    "C16",
+    "C17",
+    "C19",
+    "C01",
+    "C08"
+   ],
+   "explanation": "prohibited activity",
+   "error": null
+  },
+  {
+   "application_id": "APP-046",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C08"
+   ],
+   "cited": [
+    "C01",
+    "C05",
+    "C08",
+    "C12",
+    "C16",
+    "C17"
+   ],
+   "explanation": "sanctioned jurisdiction",
+   "error": null
+  },
+  {
+   "application_id": "APP-001",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C05",
+    "C06",
+    "C09"
+   ],
+   "cited": [
+    "C05",
+    "C08",
+    "C12",
+    "C16",
+    "C17",
+    "C19"
+   ],
+   "explanation": "high-risk tier \u2192 EDD",
+   "error": null
+  },
+  {
+   "application_id": "APP-025",
+   "gold": "request_info",
+   "pred": "approve",
+   "gold_clauses": [
+    "C20"
+   ],
+   "cited": [
+    "C05",
+    "C07",
+    "C16",
+    "C17",
+    "C19",
+    "C12"
+   ],
+   "explanation": "incomplete / inconsistent",
+   "error": null
+  },
+  {
+   "application_id": "APP-029",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C01"
+   ],
+   "cited": [
+    "C05",
+    "C08",
+    "C16",
+    "C17",
+    "C18",
+    "C19"
+   ],
+   "explanation": "unsupported entity type",
+   "error": null
+  },
+  {
+   "application_id": "APP-030",
+   "gold": "request_info",
+   "pred": "approve",
+   "gold_clauses": [
+    "C03"
+   ],
+   "cited": [
+    "C05",
+    "C16",
+    "C17",
+    "C19",
+    "C12",
+    "C23"
+   ],
+   "explanation": "restricted activity without licence evidence",
+   "error": null
+  },
+  {
+   "application_id": "APP-032",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C14"
+   ],
+   "cited": [
+    "C01",
+    "C05",
+    "C16",
+    "C17",
+    "C19",
+    "C08"
+   ],
+   "explanation": "sanctions hit: ['Elena Mulder']",
+   "error": null
+  },
+  {
+   "application_id": "APP-039",
+   "gold": "request_info",
+   "pred": "escalate",
+   "gold_clauses": [
+    "C03"
+   ],
+   "cited": [
+    "C03",
+    "C05"
+   ],
+   "explanation": "restricted activity without licence evidence",
+   "error": null
+  },
+  {
+   "application_id": "APP-042",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C02"
+   ],
+   "cited": [
+    "C05",
+    "C16",
+    "C17",
+    "C19",
+    "C01",
+    "C08"
+   ],
+   "explanation": "prohibited activity",
+   "error": null
+  },
+  {
+   "application_id": "APP-046",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C08"
+   ],
+   "cited": [
+    "C01",
+    "C05",
+    "C08",
+    "C12",
+    "C16",
+    "C17"
+   ],
+   "explanation": "sanctioned jurisdiction",
+   "error": null
+  }
+ ],
+ "accuracy": 0.8333333333333334
+}

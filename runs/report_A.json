@@ -1,0 +1,295 @@
+{
+ "approach": "A",
+ "n": 150,
+ "correct": 140,
+ "per_class": {
+  "approve": {
+   "precision": 0.890625,
+   "recall": 0.95,
+   "f1": 0.9193548387096774,
+   "tp": 57,
+   "fp": 7,
+   "fn": 3
+  },
+  "request_info": {
+   "precision": 1.0,
+   "recall": 0.9333333333333333,
+   "f1": 0.9655172413793104,
+   "tp": 42,
+   "fp": 0,
+   "fn": 3
+  },
+  "escalate": {
+   "precision": 0.9318181818181818,
+   "recall": 0.9111111111111111,
+   "f1": 0.9213483146067416,
+   "tp": 41,
+   "fp": 3,
+   "fn": 4
+  }
+ },
+ "missed_escalations": 4,
+ "gold_escalations": 45,
+ "citation_precision": 0.2683379758588672,
+ "citation_recall": 0.9174603174603174,
+ "uncited_decisions": 0,
+ "tool_correct": null,
+ "tool_evaluated": 0,
+ "wrong_actions": 0,
+ "errors": 0,
+ "mean_cost_usd": 0.0015170506666666668,
+ "mean_prompt_tokens": 3165.08,
+ "mean_completion_tokens": 156.88666666666666,
+ "mean_latency_ms": 2229.9449225271624,
+ "p95_latency_ms": 3172.67255698971,
+ "mean_model_calls": 1.0,
+ "mean_tool_calls": 3.0,
+ "confusion": {
+  "approve->approve": 57,
+  "approve->escalate": 3,
+  "escalate->approve": 4,
+  "escalate->escalate": 41,
+  "request_info->approve": 3,
+  "request_info->request_info": 42
+ },
+ "failures": [
+  {
+   "application_id": "APP-025",
+   "gold": "request_info",
+   "pred": "approve",
+   "gold_clauses": [
+    "C20"
+   ],
+   "cited": [
+    "C01",
+    "C04",
+    "C05",
+    "C07",
+    "C10",
+    "C11",
+    "C12",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C23",
+    "C24"
+   ],
+   "explanation": "incomplete / inconsistent",
+   "error": null
+  },
+  {
+   "application_id": "APP-033",
+   "gold": "approve",
+   "pred": "escalate",
+   "gold_clauses": [
+    "C05",
+    "C07",
+    "C22",
+    "C24"
+   ],
+   "cited": [
+    "C05",
+    "C06",
+    "C22"
+   ],
+   "explanation": "medium risk, complete and clean",
+   "error": null
+  },
+  {
+   "application_id": "APP-046",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C08"
+   ],
+   "cited": [
+    "C01",
+    "C04",
+    "C05",
+    "C07",
+    "C10",
+    "C14",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C22",
+    "C24"
+   ],
+   "explanation": "sanctioned jurisdiction",
+   "error": null
+  },
+  {
+   "application_id": "APP-025",
+   "gold": "request_info",
+   "pred": "approve",
+   "gold_clauses": [
+    "C20"
+   ],
+   "cited": [
+    "C01",
+    "C04",
+    "C05",
+    "C07",
+    "C10",
+    "C14",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C22",
+    "C23",
+    "C24"
+   ],
+   "explanation": "incomplete / inconsistent",
+   "error": null
+  },
+  {
+   "application_id": "APP-033",
+   "gold": "approve",
+   "pred": "escalate",
+   "gold_clauses": [
+    "C05",
+    "C07",
+    "C22",
+    "C24"
+   ],
+   "cited": [
+    "C05",
+    "C06",
+    "C22"
+   ],
+   "explanation": "medium risk, complete and clean",
+   "error": null
+  },
+  {
+   "application_id": "APP-046",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C08"
+   ],
+   "cited": [
+    "C01",
+    "C04",
+    "C05",
+    "C07",
+    "C10",
+    "C14",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C22",
+    "C24"
+   ],
+   "explanation": "sanctioned jurisdiction",
+   "error": null
+  },
+  {
+   "application_id": "APP-001",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C05",
+    "C06",
+    "C09"
+   ],
+   "cited": [
+    "C01",
+    "C04",
+    "C05",
+    "C07",
+    "C10",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C22",
+    "C23",
+    "C24"
+   ],
+   "explanation": "high-risk tier \u2192 EDD",
+   "error": null
+  },
+  {
+   "application_id": "APP-025",
+   "gold": "request_info",
+   "pred": "approve",
+   "gold_clauses": [
+    "C20"
+   ],
+   "cited": [
+    "C01",
+    "C04",
+    "C05",
+    "C07",
+    "C10",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C22",
+    "C23",
+    "C24"
+   ],
+   "explanation": "incomplete / inconsistent",
+   "error": null
+  },
+  {
+   "application_id": "APP-033",
+   "gold": "approve",
+   "pred": "escalate",
+   "gold_clauses": [
+    "C05",
+    "C07",
+    "C22",
+    "C24"
+   ],
+   "cited": [
+    "C05",
+    "C06",
+    "C22"
+   ],
+   "explanation": "medium risk, complete and clean",
+   "error": null
+  },
+  {
+   "application_id": "APP-046",
+   "gold": "escalate",
+   "pred": "approve",
+   "gold_clauses": [
+    "C08"
+   ],
+   "cited": [
+    "C01",
+    "C04",
+    "C05",
+    "C07",
+    "C10",
+    "C14",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C24"
+   ],
+   "explanation": "sanctioned jurisdiction",
+   "error": null
+  }
+ ],
+ "accuracy": 0.9333333333333333
+}

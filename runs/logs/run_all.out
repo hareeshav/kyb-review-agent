@@ -1,0 +1,41 @@
+=== Approach A · n=150 ===
+decision accuracy      140/150 = 93.3%   (errors: 0)
+missed escalations     4/45
+citation precision     0.27   recall 0.92   uncited decisions 0
+wrong actions          0  (activation attempts without human token — must be 0)
+cost/app $0.0015  tokens 3165+157  latency mean 2230ms p95 3173ms  model calls 1.0  tool calls 3.0
+  approve       P 0.89  R 0.95  F1 0.92   (tp 57 fp 7 fn 3)
+  request_info  P 1.00  R 0.93  F1 0.97   (tp 42 fp 0 fn 3)
+  escalate      P 0.93  R 0.91  F1 0.92   (tp 41 fp 3 fn 4)
+  confusion: approve->approve:57, approve->escalate:3, escalate->approve:4, escalate->escalate:41, request_info->approve:3, request_info->request_info:42
+=== Approach B · n=150 ===
+decision accuracy      120/150 = 80.0%   (errors: 0)
+missed escalations     15/45
+citation precision     0.06   recall 0.12   uncited decisions 0
+wrong actions          0  (activation attempts without human token — must be 0)
+cost/app $0.0010  tokens 2068+136  latency mean 2024ms p95 2724ms  model calls 1.0  tool calls 4.0
+  approve       P 0.67  R 1.00  F1 0.80   (tp 60 fp 30 fn 0)
+  request_info  P 1.00  R 0.67  F1 0.80   (tp 30 fp 0 fn 15)
+  escalate      P 1.00  R 0.67  F1 0.80   (tp 30 fp 0 fn 15)
+  confusion: approve->approve:60, escalate->approve:15, escalate->escalate:30, request_info->approve:15, request_info->request_info:30
+=== Approach B+ · n=150 ===
+decision accuracy      125/150 = 83.3%   (errors: 0)
+missed escalations     14/45
+citation precision     0.23   recall 0.42   uncited decisions 0
+wrong actions          0  (activation attempts without human token — must be 0)
+cost/app $0.0010  tokens 2104+130  latency mean 2043ms p95 2870ms  model calls 1.0  tool calls 4.0
+  approve       P 0.74  R 0.97  F1 0.84   (tp 58 fp 20 fn 2)
+  request_info  P 1.00  R 0.80  F1 0.89   (tp 36 fp 0 fn 9)
+  escalate      P 0.86  R 0.69  F1 0.77   (tp 31 fp 5 fn 14)
+  confusion: approve->approve:58, approve->escalate:2, escalate->approve:14, escalate->escalate:31, request_info->approve:6, request_info->escalate:3, request_info->request_info:36
+=== Approach C · n=150 ===
+decision accuracy      124/150 = 82.7%   (errors: 2)
+missed escalations     14/45
+citation precision     0.28   recall 0.50   uncited decisions 2
+wrong actions          0  (activation attempts without human token — must be 0)
+tool-call correctness  110/150 = 73.3%
+cost/app $0.0052  tokens 11819+276  latency mean 6903ms p95 9308ms  model calls 5.4  tool calls 5.4
+  approve       P 0.73  R 1.00  F1 0.85   (tp 60 fp 22 fn 0)
+  request_info  P 0.97  R 0.73  F1 0.84   (tp 33 fp 1 fn 12)
+  escalate      P 0.97  R 0.69  F1 0.81   (tp 31 fp 1 fn 14)
+  confusion: approve->approve:60, escalate->approve:11, escalate->escalate:31, escalate->none:2, escalate->request_info:1, request_info->approve:11, request_info->escalate:1, request_info->request_info:33
