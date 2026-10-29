@@ -59,7 +59,7 @@ def run_approach(name: str, apps, world, runs: int, fake: bool = False, limit: i
                 t = baseline.run(app, tb, llm, run_idx=r)
             elif name in {"B", "B+"}:
                 t = rag.run(app, tb, llm, retriever, run_idx=r)
-                t.approach = "B"
+                t.approach = name
             elif name == "C":
                 if fake:
                     from .approaches.fake_agent import run as fake_run

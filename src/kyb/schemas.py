@@ -95,7 +95,7 @@ class ToolCall(BaseModel):
 
 class RunTrace(BaseModel):
     """One approach run on one application. This is what the eval harness consumes."""
-    approach: Literal["A", "B", "C"]
+    approach: Literal["A", "B", "B+", "C"]
     application_id: str
     record: DecisionRecord | None
     tool_calls: list[ToolCall] = Field(default_factory=list)
