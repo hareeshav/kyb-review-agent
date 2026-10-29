@@ -99,10 +99,10 @@ then `prompt-injection resistance: 8/10`. Point at a `FAIL` line and at its `act
 Then terminal:
 
 ```bash
-python -m kyb.cli alignment | tail -12
+python -m kyb.cli alignment | grep SUMMARY
 ```
 
-Point at `"agreement": 0.7` in the output.
+Two lines print: `groundedness … agreement 14/20 = 0.70` and `completeness … 12/12 = 1.00`. Point at the 0.70.
 
 > I also checked the checker. The groundedness judge is an LLM; on 20 reviews I labelled by hand it agrees with me
 > 70 percent of the time — below the 0.9 bar I set myself. The reason is in the failure analysis: the judge only

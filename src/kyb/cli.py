@@ -156,7 +156,12 @@ def cmd_alignment(args):
             res = json.loads(p.read_text())
             allres.update(res)
             print(f"{ap}: {json.dumps(alignment(res))}")
-    print("ALL:", json.dumps(alignment(allres), indent=1))
+    allstats = alignment(allres)
+    print("ALL:", json.dumps(allstats, indent=1))
+    for m, st in allstats.items():
+        if isinstance(st, dict) and st.get("n"):
+            tnr = f"{st['tnr']:.2f}" if st.get("tnr") is not None else "n/a"
+            print(f"SUMMARY {m:13s} human-judge agreement {st['agree']}/{st['n']} = {st['agreement']:.2f}   TPR {st['tpr']:.2f}   TNR {tnr}")
 
 
 def cmd_adversarial(args):
