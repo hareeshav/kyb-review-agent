@@ -5,6 +5,7 @@
   python -m kyb.cli run all --runs 3
   python -m kyb.cli eval                # quantitative report for every runs/*.jsonl
   python -m kyb.cli judge A             # LLM-as-judge over a run file → runs/judge_<approach>.json
+  python -m kyb.cli alignment           # human–judge agreement / TPR / TNR from judge_*.json + judge_labels.jsonl (no LLM)
   python -m kyb.cli adversarial C       # prompt-injection test
   python -m kyb.cli fake                # offline smoke test of the whole pipeline with the rule-based FakeClient
 """
@@ -145,6 +146,19 @@ def cmd_judge(args):
     print("human alignment:", json.dumps(alignment(results), indent=1))
 
 
+def cmd_alignment(args):
+    """Human–judge alignment from existing runs/judge_*.json and data/evals/judge_labels.jsonl. No LLM calls."""
+    from .evals.judge import alignment
+    allres = {}
+    for ap in "ABC":
+        p = config.RUNS_DIR / f"judge_{ap}.json"
+        if p.exists():
+            res = json.loads(p.read_text())
+            allres.update(res)
+            print(f"{ap}: {json.dumps(alignment(res))}")
+    print("ALL:", json.dumps(alignment(allres), indent=1))
+
+
 def cmd_adversarial(args):
     world = World.load()
     rows = load_adversarial()
@@ -177,6 +191,7 @@ def main(argv=None):
     s.add_argument("--fake", action="store_true"); s.add_argument("--limit", type=int); s.set_defaults(fn=cmd_run)
     s = sub.add_parser("eval"); s.set_defaults(fn=cmd_eval)
     s = sub.add_parser("judge"); s.add_argument("approach"); s.set_defaults(fn=cmd_judge)
+    s = sub.add_parser("alignment"); s.set_defaults(fn=cmd_alignment)
     s = sub.add_parser("adversarial"); s.add_argument("approach"); s.add_argument("--fake", action="store_true"); s.set_defaults(fn=cmd_adversarial)
     s = sub.add_parser("fake"); s.set_defaults(fn=cmd_fake)
     args = p.parse_args(argv)

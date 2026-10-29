@@ -30,7 +30,11 @@ groundedness and wrong-action rate — and is the extra cost justified?
 - **Prompt injection (C, 10 adversarial variants):** 8/10 resisted, 0 activation attempts. Not run for A/B.
 - **Completeness judge (request_info only):** A 14/14, B 10/10, C 12/13.
 - **Judge order-agreement (two evidence orders):** A 48/50, B 49/50, C 50/50.
-- **Human–judge alignment:** not measured yet. `data/evals/judge_labels.jsonl` is empty.
+- **Human–judge alignment (20 hand-labelled reviews, `python -m kyb.cli alignment`):** groundedness agreement
+  **14/20 = 0.70** (TPR 0.75, TNR 0.67); completeness agreement 12/12. The sample is stratified, 10 judge-passed and
+  10 judge-failed, so it over-represents disagreements and is not a base-rate estimate. **The groundedness judge is
+  below the 0.9 bar set in the design doc and its pass counts above should be read with that in mind** — see
+  Failure analysis §3.
 - **Latency:** mean A 2230 ms, B 2024 ms, B+ 2043 ms, C 6903 ms. C averages 5.4 model calls and 5.4 tool calls per application.
 - **p95:** `metrics.py` takes the nearest-rank value below, without interpolation.
 
@@ -79,7 +83,9 @@ application ─┬─► A: full policy (25 clauses) + application + pre-fetched
   (`src/kyb/rules.py`), then hand-verified (`docs/REVIEW_GOLD.md`). No LLM is involved in labelling.
 - 10 adversarial variants (`data/synthetic/adversarial.jsonl`) inject instructions into the applicant's
   free text; gold does not change.
-- 20 hand-labelled judge samples (`data/evals/judge_labels.jsonl`) for human–judge alignment.
+- 20 hand-labelled judge samples (`data/evals/judge_labels.jsonl`, with a one-line justification per label) for
+  human–judge alignment; stratified 10 judge-pass / 10 judge-fail across A, B and C, 12 of them `request_info`
+  so the completeness judge is exercised.
 - Everything is synthetic and marked as such. No real customer data.
 
 ## Evaluation
@@ -161,7 +167,20 @@ _Maintained as the project progresses. Each entry: what was tried → what broke
        from the tool result.
      - An unrecognised model-supplied `entity_type` (e.g. "BV") would have filtered out every clause. It is now
        lower-cased, and dropped if it is still not a valid value.
-3. **Judge.** Human alignment is **not measured yet**: there are no hand labels.
+3. **Judge.** Human alignment on 20 hand-labelled reviews: groundedness **0.70** (TPR 0.75, TNR 0.67),
+   completeness 1.00. Below the 0.9 bar, so the groundedness numbers in the Results table are indicative only.
+   - **The 4 false passes share one cause.** A:APP-014 (calls a low-risk file "medium risk under C05/C07"),
+     A:APP-033 (invents a EUR 1,000,000 threshold and argues *approve* while deciding *escalate*), B:APP-024 (name
+     mismatch justified with C16; the rule is C18, uncited) and B:APP-011 (says a EUR 2.5M volume "does not trigger
+     high-risk flags"; C22/C05 are uncited). In every case the reasoning misstates or omits a rule that the judge
+     never sees, because the payload contains only the *cited* clauses. A judge that only receives what the model chose
+     to cite cannot catch "relies on a rule it did not cite" — the rubric asks for it, the payload makes it impossible.
+   - **The 2 false fails** (C:APP-004, C:APP-029) are terse but correct one-line reasonings from the agent; the judge
+     appears to penalise brevity despite the "do not reward length" instruction, and in APP-029 was likely confused by
+     the registry returning `bv` for an applicant that declared itself a trust.
+   - **Fix (not applied, out of time):** give the judge the full 25-clause policy alongside the cited clauses so it
+     can check both "is the claim supported" and "is the right clause cited"; re-run alignment. This is the next
+     experiment.
    - **What broke:** on the 5-app smoke test the groundedness judge failed A's correct APP-003 reasoning ("operates
      in RU → C08"). The payload contained only the cited clauses and lookup outputs, never the application, so facts
      from the application looked invented.
