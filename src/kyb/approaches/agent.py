@@ -36,12 +36,14 @@ class State(TypedDict):
     final: dict | None
     approval_token: str | None
     stopped: str | None
+    retrieved: list[str]
 
 
 def make_chat(model: str | None = None):
     from langchain_openai import ChatOpenAI
     chat = ChatOpenAI(model=model or config.GEN_MODEL, temperature=0, api_key=config.OPENAI_API_KEY)
-    return chat.bind_tools([{"type": "function", "function": spec} for spec in TOOL_SPECS])
+    # parallel_tool_calls=False: the API itself enforces one tool per turn.
+    return chat.bind_tools([{"type": "function", "function": spec} for spec in TOOL_SPECS], parallel_tool_calls=False)
 
 
 def build_graph(tb: Toolbox, chat, max_model_calls=config.MAX_MODEL_CALLS, max_tool_calls=config.MAX_TOOL_CALLS):
@@ -54,14 +56,20 @@ def build_graph(tb: Toolbox, chat, max_model_calls=config.MAX_MODEL_CALLS, max_t
 
     def tools(state: State) -> dict:
         last: AIMessage = state["messages"][-1]
-        out_msgs, final, n = [], state["final"], state["tool_calls"]
+        out_msgs, final, n, retrieved = [], state["final"], state["tool_calls"], list(state["retrieved"])
         for tc in last.tool_calls[:1]:  # one tool per turn, as the system prompt demands
             n += 1
             result = tb.call(tc["name"], tc["args"])
             out_msgs.append(ToolMessage(content=json.dumps(result, default=str), tool_call_id=tc["id"], name=tc["name"]))
+            if tc["name"] == "retrieve_policy":
+                retrieved += [c["id"] for c in result.get("clauses", []) if c["id"] not in retrieved]
             if tc["name"] in FINAL_ACTIONS and tb.final:
                 final = tb.final
-        return {"messages": out_msgs, "tool_calls": n, "final": final}
+        # The API requires an answer to every tool_call_id; extra calls are refused, not executed.
+        for tc in last.tool_calls[1:]:
+            out_msgs.append(ToolMessage(content=json.dumps({"error": "not executed: one tool per turn; call it again next turn"}),
+                                        tool_call_id=tc["id"], name=tc["name"]))
+        return {"messages": out_msgs, "tool_calls": n, "final": final, "retrieved": retrieved}
 
     def activate(state: State) -> dict:
         # Only reached after the interrupt was resumed with a human-issued token.
@@ -112,7 +120,8 @@ def run(app: Application, tb: Toolbox, chat, run_idx: int = 0, model_name: str |
     cfg = {"configurable": {"thread_id": f"{app.application_id}-{run_idx}"}}
     init: State = {"messages": [SystemMessage(content=AGENT_SYSTEM), HumanMessage(content=render_application(app))],
                    "application_id": app.application_id, "model_calls": 0, "tool_calls": 0,
-                   "prompt_tokens": 0, "completion_tokens": 0, "final": None, "approval_token": None, "stopped": None}
+                   "prompt_tokens": 0, "completion_tokens": 0, "final": None, "approval_token": None, "stopped": None,
+                   "retrieved": []}
     err = None
     try:
         state = graph.invoke(init, cfg)
@@ -121,7 +130,7 @@ def run(app: Application, tb: Toolbox, chat, run_idx: int = 0, model_name: str |
         state = graph.get_state(cfg).values or init
     rec = _record_from_final(state.get("final"), state.get("stopped"))
     model = model_name or config.GEN_MODEL
-    retrieved = sorted({cid for c in tb.calls if c.tool == "retrieve_policy" for cid in __import__("re").findall(r"C\d{2}", c.output_preview)})
+    retrieved = state.get("retrieved", [])
     return RunTrace(
         approach="C", application_id=app.application_id, record=rec, tool_calls=list(tb.calls),
         retrieved_clauses=retrieved, model_calls=state.get("model_calls", 0),

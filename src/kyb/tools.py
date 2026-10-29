@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 from . import config
 from .gate import ApprovalGate, GateError
 from .rules import REQUIRED_DOCS
-from .schemas import Application, DocType, ToolCall
+from .schemas import Application, DocType, EntityType, ToolCall
 from .world import World
 
 TOOL_SPECS = [
@@ -148,7 +148,9 @@ class Toolbox:
     def retrieve_policy(self, query: str, entity_type: str | None = None, reason: str = "") -> dict:
         if self.retriever is None:
             return {"error": "no retriever configured"}
-        hits = self.retriever.search(query, entity_type=entity_type)
+        # The model supplies entity_type; an unrecognised value would filter out every clause, so drop it.
+        et = (entity_type or "").strip().lower()
+        hits = self.retriever.search(query, entity_type=et if et in {e.value for e in EntityType} else None)
         return {"clauses": [{"id": c.id, "title": c.title, "text": c.body} for c in hits]}
 
     def request_info(self, application_id: str, items: list[str], cited_clauses: list[str], reason: str = "") -> dict:
