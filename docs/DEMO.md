@@ -1,7 +1,7 @@
 # Demo video — 3 minutes, script and shot list
 
 Record with QuickTime (File → New Screen Recording, mic on) or Loom. Terminal font large (≥ 16 pt), one
-window, repo root. Read the script; don't improvise numbers. Target 2:45–3:00.
+window, repo root. Read the script; don't improvise numbers. Target 2:50–3:05. Never show the `.env` file or the API key on screen.
 
 ## Prep (before recording)
 
@@ -13,15 +13,22 @@ Have these open in tabs: `README.md` (Results table), `runs/logs/eval.out`, `run
 
 ## Script
 
-**[0:00–0:25] The problem — talking over the README header**
+**[0:00–0:35] The problem — talking over the README header**
 
-> I'm Hareesh. My capstone is a first-line KYB review assistant. It reads one merchant onboarding application,
+> Hi, I'm Hareesh, a backend engineer at a crypto exchange in Amsterdam. Before that I worked on merchant
+> onboarding at a payments company, so this capstone comes from a problem I've seen up close.
+> When a business applies to accept payments, someone has to check it before it goes live: who owns it, what it
+> sells, where it operates, whether the documents are complete, whether anyone is sanctioned. That check is called
+> KYB — know your business. It's manual, the policy is long, and the mistakes aren't symmetric: approving a bad
+> merchant is far more expensive than escalating a good one.
+> My project is a first-line KYB review assistant. It reads one application, runs the lookups an analyst would run,
 > and returns one of three decisions — approve, request more information, or escalate — with the policy clauses
-> that justify it. "Approve" is only a proposal: activating a merchant needs a human, and that's enforced in the
-> tool layer, not in the prompt. The real question was: does a tool-using agent with retrieval beat one LLM call
-> with the whole policy in context?
+> that justify it. One safety rule: "approve" is only a proposal. Activating a merchant needs a human, and that's
+> enforced in the code that executes the tool, not in the prompt.
+> And the question I wanted to answer, in the spirit of this course: does a tool-using agent with retrieval
+> actually beat one LLM call with the whole policy in context? I built all three and measured.
 
-**[0:25–0:55] The data — show `data/policy/kyb_policy.md` briefly, then run:**
+**[0:35–1:00] The data — show `data/policy/kyb_policy.md` briefly, then run:**
 
 ```bash
 python -m kyb.cli gen
@@ -32,7 +39,7 @@ python -m kyb.cli gen
 > deterministic rule checker written from the policy, then hand-verified. No LLM labels anything. There are also
 > ten prompt-injection variants.
 
-**[0:55–1:25] The gate — run the tests:**
+**[1:00–1:25] The gate — run the tests:**
 
 ```bash
 pytest -q tests/test_gate.py
