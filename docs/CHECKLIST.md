@@ -6,16 +6,16 @@ Specification (required sections, project requirements, rubric, failure modes).
 | # | Requirement / takeaway | Where it is | Status |
 |---|---|---|---|
 | 1 | One-pager: problem, architecture + rationale, components (vector DB, LLM) | `docs/CapstoneProject_KYB_Review_Agent.pdf` (submitted via form) | done |
-| 2 | Golden set ~50, hand-verified; data strategy stated in the doc | `data/synthetic/gold.jsonl` from `rules.py`; `docs/REVIEW_GOLD.md`; README "Data strategy" | generated — **hand-verify** |
-| 3 | Eval progression that justifies the architecture; no jump to multi-agent | A → B → B+ (hybrid) → C, same 50 apps, 3 runs each; multi-agent deliberately not built (single decision, no parallel sub-tasks) — stated in design doc | code ready, runs need key |
+| 2 | Golden set ~50, hand-verified; data strategy stated in the doc | `data/synthetic/gold.jsonl` from `rules.py`; `docs/REVIEW_GOLD.md`; README + DOCUMENTATION §2 | generated — **Hareesh: confirm hand-verification done** |
+| 3 | Eval progression that justifies the architecture; no jump to multi-agent | A → B → B+ → C, 3 × 50 each; A wins; multi-agent not built, reason in DOCUMENTATION §7.7 | done |
 | 4 | Quantitative vs qualitative evals separated | `evals/metrics.py` (exact match, P/R/F1, tool-call correctness vs reference, cost/latency) vs `evals/judge.py` (LLM-as-judge) | done |
-| 5 | Judge: one per metric, binary, different/stronger model, ordering check, rubric, human alignment | `evals/judge.py`: groundedness + completeness judges, two evidence orders must agree, `alignment()` vs `data/evals/judge_labels.jsonl` | code ready — **label 20 samples** |
+| 5 | Judge: one per metric, binary, different/stronger model, ordering check, rubric, human alignment | `evals/judge.py`; 20 labels in `data/evals/judge_labels.jsonl`; `cli alignment` → 0.70 groundedness, documented | done — **Hareesh: review the 20 labels** |
 | 6 | Observability: every tool call/args/output logged; traces drive tool-sequence evals | `tools.Toolbox.call` → `RunTrace.tool_calls`; `metrics.tool_call_correct` | done |
-| 7 | Harness/security: least-privilege tools, permission scoping, guardrails, prompt-injection test | `gate.py` + `tests/test_gate.py`; model cannot activate; Pydantic input/output validation; `adversarial.py` (10 injections) + `cli adversarial` | done (run needs key) |
-| 8 | Context engineering: token budget, truncation, what to send; named in the doc | `config.py` budgets; `prompts.render_*` truncation; `tools._truncate` head/tail; one tool per turn; loop bounded so no compaction is needed (state this in the doc) | done |
-| 9 | Memory design (if conversational) | Not conversational: one application per run, no cross-run memory. State explicitly in the doc why no memory layer. | n/a (document it) |
+| 7 | Harness/security: least-privilege tools, permission scoping, guardrails, prompt-injection test | `gate.py` + tests; `adversarial.py`; run: 8/10 resisted, 0/10 activations | done |
+| 8 | Context engineering: token budget, truncation, what to send; named in the doc | `config.py` budgets; truncation; one tool per turn; bounded loop; stated in DOCUMENTATION §4 and DESIGN §2 | done |
+| 9 | Memory design (if conversational) | Not conversational; stated in DOCUMENTATION §4/§7.7 and DESIGN §2 | n/a (documented) |
 | 10 | Prefer design over framework; LangChain/LangGraph unless lacking | LangGraph for C (interrupt before activate); A/B plain OpenAI SDK; evals framework-independent | done |
-| 11 | Coding agent to implement; demo app or video | Continue in Claude Code on the Mac; `ui/` (Gradio, optional) + 3-minute video script in `docs/DEMO.md` | todo |
+| 11 | Coding agent to implement; demo app or video | Built with Claude Code; UI not built (time); video script in `docs/DEMO.md` | **Hareesh: record video** |
 | 12 | Deadline Fri 30 Oct 23:59 IST (19:29 CET); showcase Sun 1 Nov | — | — |
 
 ## Spec → repo
@@ -26,9 +26,9 @@ Specification (required sections, project requirements, rubric, failure modes).
 | Core flow (RAG / ReAct / multi-agent) | B (RAG workflow) and C (ReAct on LangGraph) |
 | Comparative evaluation ≥2 approaches, justified choice | A/B/B+/C + decision rule in design doc |
 | Failure analysis section in README | README → "Failure analysis" |
-| UI (optional) | Gradio page: submit, trace, confirm/reject approval → resumes the LangGraph interrupt |
-| Design doc 1–2 pages | one-pager (submitted) → expand to `docs/DESIGN.md` |
-| Documentation 4–5 pages | `docs/DOCUMENTATION.md` (problem, data processing, retrieval, orchestration, evals, decision reasoning, failure analysis) |
-| Demo video 3 min | `docs/DEMO.md` script |
+| UI (optional) | not built; approval flow shown via LangGraph interrupt + gate tests + CLI |
+| Design doc 1–2 pages | `docs/DESIGN.pdf` (2 pages, incl. plan-vs-delivered table) |
+| Documentation 4–5 pages | `docs/DOCUMENTATION.pdf` (3 pages: problem, data, retrieval, orchestration, evals, decision reasoning, failure analysis, reproduce) |
+| Demo video 3 min | `docs/DEMO.md` script and shot list — **to record** |
 | Rubric: problem specificity / data processing / retrieval design / orchestration / evaluations / decision reasoning | README sections map 1:1 |
 | Zero for reused projects or fabricated eval data | all data generated by committed seeded code; gold from rules; marked synthetic |
