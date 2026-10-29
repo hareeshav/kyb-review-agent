@@ -131,7 +131,10 @@ def cmd_judge(args):
         from .approaches.common import prefetch
         tb = _toolbox(world, apps)
         outputs = prefetch(tb, app_index[t.application_id])
-        results[f"{args.approach}:{t.application_id}"] = judge_trace(jc, t, outputs)
+        app = app_index[t.application_id]
+        # Structured fields only (no free-text narrative): what the reasoning may legitimately cite.
+        fields = app.model_dump(mode="json", exclude={"narrative", "documents", "activity_category"})
+        results[f"{args.approach}:{t.application_id}"] = judge_trace(jc, t, outputs, fields)
         print(f"[judge {args.approach}] {i}/{len(traces)} {t.application_id} → {results[f'{args.approach}:{t.application_id}']}", file=sys.stderr)
     out = config.RUNS_DIR / f"judge_{tag}.json"
     out.write_text(json.dumps(results, indent=1))

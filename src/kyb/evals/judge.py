@@ -26,9 +26,9 @@ evidence-based explanation that references clause IDs or lookup fields present i
 determine the answer from the evidence, score 0."""
 
 GROUNDEDNESS_RUBRIC = """Criterion: GROUNDEDNESS.
-Score 1 only if every factual claim in `reasoning` is supported by the `cited_clauses` text or by the `lookup_outputs`,
-AND the cited clauses actually say what the reasoning attributes to them.
-Score 0 if the reasoning cites a clause that does not support the claim, invents a fact not in the lookups,
+Score 1 only if every factual claim in `reasoning` is supported by the `cited_clauses` text, the `application` fields
+or the `lookup_outputs`, AND the cited clauses actually say what the reasoning attributes to them.
+Score 0 if the reasoning cites a clause that does not support the claim, invents a fact not in the application or lookups,
 or relies on a rule that is not among the cited clauses."""
 
 COMPLETENESS_RUBRIC = """Criterion: COMPLETENESS of missing_items.
@@ -69,7 +69,7 @@ class JudgeClient:
         return r.choices[0].message.parsed
 
 
-def _payload(trace: RunTrace, lookup_outputs: dict, order: int) -> dict:
+def _payload(trace: RunTrace, lookup_outputs: dict, order: int, application: dict | None = None) -> dict:
     cm = clause_map()
     cited = [{"id": c, "text": cm[c].text} for c in trace.record.cited_clauses if c in cm]
     if order == 1:
@@ -79,11 +79,12 @@ def _payload(trace: RunTrace, lookup_outputs: dict, order: int) -> dict:
         "reasoning": trace.record.reasoning,
         "missing_items": trace.record.missing_items,
         "cited_clauses": cited,
+        "application": application or {},
         "lookup_outputs": lookup_outputs,
     }
 
 
-def judge_trace(jc: JudgeClient, trace: RunTrace, lookup_outputs: dict) -> dict:
+def judge_trace(jc: JudgeClient, trace: RunTrace, lookup_outputs: dict, application: dict | None = None) -> dict:
     """Returns {'groundedness': 0|1, 'completeness': 0|1|None, 'agreement': bool, 'explanations': [...]}"""
     if trace.record is None:
         return {"groundedness": 0, "completeness": None, "agreement": True, "explanations": ["no record"]}
@@ -93,8 +94,8 @@ def judge_trace(jc: JudgeClient, trace: RunTrace, lookup_outputs: dict) -> dict:
         if name == "completeness" and trace.record.decision.value != "request_info":
             out[name] = None
             continue
-        v0 = jc.judge(rubric, _payload(trace, lookup_outputs, 0))
-        v1 = jc.judge(rubric, _payload(trace, lookup_outputs, 1))
+        v0 = jc.judge(rubric, _payload(trace, lookup_outputs, 0, application))
+        v1 = jc.judge(rubric, _payload(trace, lookup_outputs, 1, application))
         if v0.score != v1.score:
             agree = False
         out[name] = int(v0.score == 1 and v1.score == 1)
