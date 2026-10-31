@@ -228,5 +228,5 @@ src/kyb/approaches/             baseline (A), rag (B / B+), agent (C, LangGraph)
 src/kyb/evals/                  metrics (quantitative), judge (LLM-as-judge)
 tests/                          gate, rules, generator, tools, metrics
 runs/                           traces and reports (generated)
-docs/                           CHECKLIST.md, REVIEW_GOLD.md, design doc, documentation
+docs/                           DESIGN.pdf (design doc), DOCUMENTATION.pdf, REVIEW_GOLD.md (gold hand-check)
 ```
